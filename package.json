@@ -8,6 +8,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "fmt": "prettier --write --ignore-unknown .",
     "astro": "astro"
   },
   "dependencies": {
