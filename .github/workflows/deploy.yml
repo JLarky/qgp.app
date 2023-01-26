@@ -17,11 +17,13 @@ jobs:
         run: yarn
 
       - name: Build Astro
-        run: yarn build
+        run: yarn build && cp .deno-deploy/* dist/
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: qgp
-          entrypoint: https://deno.land/std/http/file_server.ts
+          entrypoint: static.ts
+          # or use this if you don't need custom 404 redirects
+          # entrypoint: https://deno.land/std/http/file_server.ts
           root: dist

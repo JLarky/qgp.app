@@ -9,6 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "fmt": "prettier --write --ignore-unknown .",
+    "deno": "(cd dist; deno run --allow-net --allow-read --watch ../.deno-deploy/static.ts)",
     "astro": "astro"
   },
   "dependencies": {
