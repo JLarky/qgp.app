@@ -12,4 +12,5 @@ export default defineConfig({
 	site: 'https://example.com',
 	integrations: [mdx(), sitemap(), react()],
 	vite: defineAstro(common, {}),
+	server: { port: 3000 },
 });

@@ -19,4 +19,5 @@ export default defineVite(common, {
 			overlay: { initialIsOpen: false },
 		}),
 	],
+	server: { port: 5173 },
 });
