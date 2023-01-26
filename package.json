@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
+    "dev": "vite --config qgp.config.mjs",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -13,9 +13,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.0.1",
     "@astrojs/mdx": "^0.15.0",
+    "@astrojs/react": "^1.2.2",
     "@astrojs/rss": "^2.1.0",
-    "@astrojs/sitemap": "^1.0.0"
+    "@astrojs/sitemap": "^1.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "astro": "^2.0.1",
+    "qgp": "*",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^3.0.1",
+    "typescript": "^4.9.4",
+    "vite-plugin-checker": "^0.5.4"
   }
 }
