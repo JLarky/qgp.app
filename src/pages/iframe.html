@@ -1,14 +1,44 @@
-<iframe src="http://localhost:3000/SPA"></iframe>
-<iframe src="http://localhost:5173/SPA"></iframe>
+<h1>Astro on the Left, Vite on the right!</h1>
+<p>Edit src/components/SPA.tsx to see the HMR difference.</p>
+<div class="wrapper">
+	<iframe src="http://localhost:3000/SPA"></iframe>
+	<iframe src="http://localhost:5173/SPA"></iframe>
+</div>
 <style>
-	body {
+	.wrapper {
 		display: flex;
-		gap: 1rem;
-		background: #f5f5f5;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
 	}
+
 	iframe {
 		width: 50%;
 		height: 100%;
 		border: none;
+	}
+
+	h1 {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		color: #fff;
+		background: #00c;
+		opacity: 0.9;
+	}
+
+	p {
+		position: absolute;
+		top: 40;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		font-weight: bold;
+		color: #fff;
+		background: #f00;
+		opacity: 0.9;
 	}
 </style>

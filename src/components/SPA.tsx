@@ -4,10 +4,23 @@ import style from './SPA.module.css';
 import '../styles/global.css';
 
 export const Layout = () => {
+	const [dev, setDev] = useState(false);
+	useEffect(() => {
+		if (import.meta.env.DEV) {
+			setDev(true);
+		}
+	}, []);
+
 	return (
 		<div className={style.spa}>
 			<header>
 				<h2>QGP — Astro superpowered by Vite HMR</h2>
+				{dev && (
+					<h3>
+						EDIT THIS PAGE!! Your state will be preserved on the right, but not on the left. You can
+						even browse to different parts of the SPA! Try the counter. :)
+					</h3>
+				)}
 				<nav>
 					<a href="/">Home</a>
 					<a href="/astro">Astro</a>

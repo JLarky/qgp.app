@@ -85,8 +85,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				Astro dev server and the Vite dev server so you can work on both the app and the rest of
 				your site at the same time.
 			</p>
-			<h3>Local Demo Instructions</h3>
-			<p class="action">For obvous reasons the only way to try out HMR is to run it locally</p>
+			<h3>Installation Instructions</h3>
 			<ol>
 				<li>Open a terminal in your folder of choice</li>
 				<li>
@@ -105,32 +104,47 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					Type <code>nr dev</code> to start the dev server.
 				</li>
 				<li>
-					Open <a href="http://localhost:3000">http://localhost:3000</a> to see Astro site.
-				</li>
-				<li>
-					Open <a href="http://localhost:5173">http://localhost:5173</a> to see Vite SPA.
+					Open <a href="http://localhost:3000">http://localhost:3000</a> to see the site.
 				</li>
 			</ol>
 			<h3>What's Next?</h3>
 			<p>
 				Like we said, we're just getting started. If you have any ideas or questions, feel free to
-				open an issue on the <a href="https://github.com/JLarky/qgp.app">GitHub repo</a>.
+				open an issue on the <a href="https://github.com/JLarky/qgp.app">GitHub repo</a>. For now, a
+				new prompt will emerge below this with a link to an HMR showcase.
 			</p>
+
+			<Footer />
+			<script>
+				function devEnvChecker() {
+					const infobox = document.createElement('div');
+					if (import.meta.env.DEV) {
+						infobox.innerHTML = `
+							<div
+							style="background: #d4edda; margin: 0 -1rem 1rem; padding: 1rem; border-radius: 0.25rem;"
+							>
+								<h2>Hey Dev!</h2>
+								<p>
+									Now that you're in development mode, <a href="/iframe">click this link to see how
+									the HMR works.</a>
+								</p>
+								</h2>
+						`;
+					} else {
+						infobox.innerHTML = `
+							<div
+							style="background: #f8d7da; margin: 0 -1rem 1rem; padding: 1rem; border-radius: 0.25rem;"
+							<h2>Hey Dev!</h2>
+								<p>
+				To see how QGP is better than either Astro or Vite alone, you need to see for
+				yourself. When you download the repo and run <code>npm run dev</code> a new prompt will appear here.
+			</p>
+						`;
+					}
+					document.body.appendChild(infobox);
+				}
+				devEnvChecker();
+			</script>
 		</main>
-		<Footer />
-		<style>
-			.warning {
-				background: #f8d7da;
-				margin: 0 -1rem 1rem;
-				padding: 1rem;
-				border-radius: 0.25rem;
-			}
-			.action {
-				background: #d4edda;
-				margin: 0 -1rem 1rem;
-				padding: 1rem;
-				border-radius: 0.25rem;
-			}
-		</style>
 	</body>
 </html>
