@@ -10,12 +10,14 @@ export const Layout = () => {
 				<h2>QGP — Astro superpowered by Vite HMR</h2>
 				<nav>
 					<a href="/">Home</a>
-					<a href="/about">Astro</a>
-					<a href="/about">Blog</a>
+					<a href="/astro">Astro</a>
+					<a href="/blog">Blog</a>
 					<a href="/about">About</a>
 					<Link className={style.active} to="/SPA">
 						SPA
 					</Link>
+					<a href="https://twitter.com/JLarky">Twitter</a>
+					<a href="https://github.com/JLarky/qgp.app">GitHub</a>
 				</nav>
 			</header>
 			<Outlet />

@@ -19,17 +19,36 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					href="https://fogbender.com">fogbender.com</a
 				>.
 			</p>
+			<h2>Why QGP?</h2>
+			<h3>The power of Astro</h3>
 			<p>
-				This website is a small demo of what QGP does and a bit of explanation of why it exists.
+				Everything that you see right now is powered by <a href="https://astro.build/">Astro</a>. It
+				started as a static site generator with a mix of HTML and JSX style templating, but it's
+				become so much more! Here's a small list of it's extensive features:
 			</p>
+			<ul>
+				<li>Native TypeScript and MDX support -- No need for plugins or extra config.</li>
+				<li>
+					Bring Your Own Framework -- Use React, Vue, Svelte, etc. (Astro components are great too!)
+				</li>
+				<li>Dynamic Route Rendering -- Choose between SSG and SSR by route.</li>
+				<li>
+					Island Architecture -- Choose when and how to hydrate your app with JavaScript (with 0kb
+					by default!)
+				</li>
+				<li>
+					Serverless Adapters for Vercel, Netlify, and Deno Deploy -- or build the app and host it
+					yourself!
+				</li>
+				<li>
+					and more! Check out the <a href="https://astro.build"
+						>website for a full list of features</a
+					>.
+				</li>
+			</ul>
 			<p>
-				Everything that you see right now is powered by <a href="https://astro.build/">Astro</a>, it
-				includes static generator with a mix of HTML and JSX style templating, blog, integrations
-				with tons of hosting providers, image optimization, SSR/SSG, RSS feeds, and more.
-			</p>
-			<p>
-				You can use as little client-side javascript as you want, this counter is powered by a
-				simple script tag embedded right into the <code>index.astro</code> template.
+				With Astro, you can use as little client-side javascript as you want. This counter is
+				powered by a simple script tag embedded right into the <code>index.astro</code> template.
 			</p>
 			<button id="counter">Click me (requires JS)</button>
 			<script>
@@ -44,22 +63,58 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			</script>
 			<p>
 				But you can also use as <a href="https://astro.build/integrations/frameworks/">much</a> client-side
-				javascript as you want. For example you could put your whole existing React app (generated with
-				<a href="https://create-react-app.dev/">create-react-app</a> for example) into what is called
-				"fat island" so it can overtake the routing and you can optionally use SSR/SSG with it.
+				javascript as you want. This example has an <a href="/SPA">entire React App in it!</a>
+			</p>
+			<h3>Why not just use Astro?</h3>
+			<p>
+				So, what's the point of QGP if Astro is already so great? Well, there's one limitation that
+				we haven't explained yet. While Astro is built on top of Vite, it runs additional build
+				steps that are not compatible with Vite's HMR.
 			</p>
 			<p>
-				Current limitation of Astro is that it doesn't support HMR (hot module replacement), so it
-				reloads the whole page when something changes, a lot of SPA experiences require HMR for a
-				good developer experience. To address this QGP template starts a vite powered dev server
-				just for your SPA "fat island" so you can use HMR for that part of your app.
+				This limitation is necessary for Astro to do some of its cool optimizations, but it is not
+				ideal for developing complex applications. Lazy loading entire React applications into your
+				site is nice, but testing them can be difficult when your state is lost every time you save
+				a file.
 			</p>
-			<p class="action">
-				Action required: to demonstrate HMR you need to edit the file <code
-					>src/components/SPA.tsx</code
-				> (just changing some text in it will do) and save it. Then compare how pages <a
-					href="http://localhost:3000/SPA">http://localhost:3000/SPA</a
-				> and <a href="http://localhost:5173/SPA">http://localhost:5173/SPA</a> behave differenlty.
+			<h3>Enter QGP</h3>
+			<p>
+				QGP simply sets up an additional Vite server that runs alongside Astro. This allows you to
+				use Vite's HMR to develop your React app, while still using Astro's incredibly powerful
+				tools. Additionally, Now, when you run <code>npm run dev</code>, it will start both the
+				Astro dev server and the Vite dev server so you can work on both the app and the rest of
+				your site at the same time.
+			</p>
+			<h3>Local Demo Instructions</h3>
+			<p class="action">For obvous reasons the only way to try out HMR is to run it locally</p>
+			<ol>
+				<li>Open a terminal in your folder of choice</li>
+				<li>
+					Type <code>npx degit https://github.com/JLarky/qgp.app qgp-starter</code> to start.
+				</li>
+				<li>
+					Type <code>cd qgp-starter</code> to enter the new folder.
+				</li>
+				<li>
+					Type <code>npm i -g @antfu/ni</code> to install a helpful tool.
+				</li>
+				<li>
+					Type <code>ni</code> to set up the project.
+				</li>
+				<li>
+					Type <code>nr dev</code> to start the dev server.
+				</li>
+				<li>
+					Open <a href="http://localhost:3000">http://localhost:3000</a> to see Astro site.
+				</li>
+				<li>
+					Open <a href="http://localhost:5173">http://localhost:5173</a> to see Vite SPA.
+				</li>
+			</ol>
+			<h3>What's Next?</h3>
+			<p>
+				Like we said, we're just getting started. If you have any ideas or questions, feel free to
+				open an issue on the <a href="https://github.com/JLarky/qgp.app">GitHub repo</a>.
 			</p>
 		</main>
 		<Footer />
