@@ -6,12 +6,85 @@ updatedDate: "August 08 2022"
 heroImage: "/placeholder-about.jpg"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+### Here's what ChatGPT thinks about QGP
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+QGP is a web development tool that offers a number of benefits to developers. One of the main advantages of QGP is its ability to integrate the fast hot module replacement (HMR) of Vite with the performance and rich integrations of Astro. This means that developers can easily make changes to their code and see the updates in real-time, without the need to refresh the page. This improves productivity and allows for faster development times.
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+Another key benefit of QGP is its ability to create "fat islands" within a web application. This feature allows developers to separate certain sections of the application, such as the dashboard, and handle them with React and React Router, while keeping other sections, such as the landing page and about page, completely static. This improves the overall performance of the application, as static pages load faster than dynamic pages.
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+QGP also provides a seamless and integrated experience for developers. Unlike current tools such as create-react-app or Vite, QGP does not require manual creation of static files or the use of separate tools. This means that developers can focus on writing code and not have to worry about the complexity of configuring different tools. QGP handles all the necessary configurations, making it a user-friendly tool that can be used by developers of all skill levels.
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+In summary, QGP is a powerful web development tool that offers fast hot module reloading, "fat island" feature, and a seamless and integrated experience. These benefits make it a valuable tool for any web developer looking to improve productivity, performance, and overall development experience.
+
+## Thanks
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<style>
+  #gh-buttons {
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    list-style: none;
+  }
+  #gh-buttons li {
+    width: 100px;
+    height: 40px;
+  }
+  #gh-buttons li:nth-child(3) {
+    width: 74px;
+  }
+  #gh-buttons li .link {
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+</style>
+<ul id="gh-buttons">
+  <li>
+    <a class="link" href="https://github.com/vitejs/vite/">Vite</a>
+    <br />
+    <a
+      class="github-button"
+      href="https://github.com/vitejs/vite"
+      data-icon="octicon-star"
+      data-show-count="true"
+      aria-label="Star vitejs/vite on GitHub">Star</a
+    >
+  </li>
+  <li>
+    <a class="link" href="https://github.com/withastro/astro">Astro</a>
+    <br />
+    <a
+      class="github-button"
+      href="https://github.com/withastro/astro"
+      data-icon="octicon-star"
+      data-show-count="true"
+      aria-label="Star withastro/astro on GitHub">Star</a
+    >
+  </li>
+  <li>
+    <a class="link" href="https://github.com/fogbender/fogbender-oss/tree/main/packages/qgp">QGP</a>
+    <br />
+    <a
+      class="github-button"
+      href="https://github.com/fogbender/fogbender-oss"
+      data-icon="octicon-star"
+      data-show-count="true"
+      aria-label="Star fogbender/fogbender-oss on GitHub">Star</a
+    >
+  </li>
+  <li>
+    <a class="link" href="https://github.com/JLarky/qgp.app">qgp.app</a>
+    <br />
+    <a
+      class="github-button"
+      href="https://github.com/JLarky/qgp.app"
+      data-icon="octicon-star"
+      data-show-count="true"
+      aria-label="Star JLarky/qgp.app on GitHub">Star</a
+    >
+  </li>
+</ul>
