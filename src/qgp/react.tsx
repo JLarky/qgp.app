@@ -1,5 +1,5 @@
 import './env';
-import ReactSPA from '../App';
+import ReactSPA from '../components/App';
 
 export const App = () => {
 	return <ReactSPA />;

@@ -13,38 +13,69 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header title={SITE_TITLE} />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
+			<h1>Welcome to QGP 👋 ⚛️</h1>
+			<p class="warning">
+				This project is in an extremely alpha state, but we use it to power our product at <a
+					href="https://fogbender.com">fogbender.com</a
+				>.
 			</p>
 			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
+				This website is a small demo of what QGP does and a bit of explanation of why it exists.
 			</p>
 			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
+				Everything that you see right now is powered by <a href="https://astro.build/">Astro</a>, it
+				includes static generator with a mix of HTML and JSX style templating, blog, integrations
+				with tons of hosting providers, image optimization, SSR/SSG, RSS feeds, and more.
+			</p>
+			<p>
+				You can use as little client-side javascript as you want, this counter is powered by a
+				simple script tag embedded right into the <code>index.astro</code> template.
+			</p>
+			<button id="counter">Click me (requires JS)</button>
+			<script>
+				let count = 0;
+				// this is actually typescript code 🤯
+				const button = document.getElementById('counter')!;
+				button.innerText = 'Click me: ' + count;
+				button.addEventListener('click', () => {
+					count++;
+					button.innerText = 'Click me again: ' + count;
+				});
+			</script>
+			<p>
+				But you can also use as <a href="https://astro.build/integrations/frameworks/">much</a> client-side
+				javascript as you want. For example you could put your whole existing React app (generated with
+				<a href="https://create-react-app.dev/">create-react-app</a> for example) into what is called
+				"fat island" so it can overtake the routing and you can optionally use SSR/SSG with it.
+			</p>
+			<p>
+				Current limitation of Astro is that it doesn't support HMR (hot module replacement), so it
+				reloads the whole page when something changes, a lot of SPA experiences require HMR for a
+				good developer experience. To address this QGP template starts a vite powered dev server
+				just for your SPA "fat island" so you can use HMR for that part of your app.
+			</p>
+			<p class="action">
+				Action required: to demonstrate HMR you need to edit the file <code
+					>src/components/SPA.tsx</code
+				> (just changing some text in it will do) and save it. Then compare how pages <a
+					href="http://localhost:3000/SPA">http://localhost:3000/SPA</a
+				> and <a href="http://localhost:5173/SPA">http://localhost:5173/SPA</a> behave differenlty.
 			</p>
 		</main>
 		<Footer />
+		<style>
+			.warning {
+				background: #f8d7da;
+				margin: 0 -1rem 1rem;
+				padding: 1rem;
+				border-radius: 0.25rem;
+			}
+			.action {
+				background: #d4edda;
+				margin: 0 -1rem 1rem;
+				padding: 1rem;
+				border-radius: 0.25rem;
+			}
+		</style>
 	</body>
 </html>
