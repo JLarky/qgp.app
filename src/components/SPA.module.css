@@ -1,7 +1,3 @@
-html {
-	background-color: #fff5cf16;
-}
-
 .spa header {
 	margin: 0em 0 2em;
 }
@@ -40,4 +36,12 @@ html {
 .btn {
 	all: unset;
 	cursor: pointer;
+}
+
+.toggleTheme {
+	position: sticky;
+	top: 0;
+	background: #ccc;
+	padding: 0.5rem;
+	border: 1px solid #999;
 }

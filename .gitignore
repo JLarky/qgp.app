@@ -24,3 +24,8 @@ pnpm-debug.log*
 .vscode/
 !.vscode/extensions.json
 !.vscode/launch.json
+
+#lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

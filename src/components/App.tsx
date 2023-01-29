@@ -13,8 +13,9 @@ export default () => (
 					</Route>
 					<Route path="counter" element={<Counter />} />
 				</Route>
+
+				<Route path="*" element={<NotFound />} />
 			</Route>
-			<Route path="*" element={<NotFound />} />
 		</Routes>
 	</BrowserRouter>
 );
