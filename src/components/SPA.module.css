@@ -1,43 +1,47 @@
-html {
-	background-color: #fff5cf16;
-}
-
 .spa header {
-  margin: 0em 0 2em;
+	margin: 0em 0 2em;
 }
 .spa nav a {
-  margin-right: 16px;
-  text-decoration: none;
+	margin-right: 16px;
+	text-decoration: none;
 }
 
 .spa nav a.active {
-  font-weight: bolder;
-  text-decoration: underline;
+	font-weight: bolder;
+	text-decoration: underline;
 }
 
 .spa h2 {
-  color: #222;
-  margin: 0.5em 0
+	color: #222;
+	margin: 0.5em 0;
 }
 
 .app {
-  display: flex;
-  padding: 0.5rem;
-  gap: 1rem;
+	display: flex;
+	padding: 0.5rem;
+	gap: 1rem;
 }
 
 .app aside {
-  flex: 0 0 140px;
-  background: #eee;
-  border: 1px solid #ccc;
-  padding: 0 10px 10px 10px;
+	flex: 0 0 140px;
+	background: #eee;
+	border: 1px solid #ccc;
+	padding: 0 10px 10px 10px;
 }
 
 .app aside a {
-  display: block;
+	display: block;
 }
 
 .btn {
-  all: unset;
-  cursor: pointer;
+	all: unset;
+	cursor: pointer;
+}
+
+.toggleTheme {
+	position: sticky;
+	top: 0;
+	background: #ccc;
+	padding: 0.5rem;
+	border: 1px solid #999;
 }

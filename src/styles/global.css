@@ -64,3 +64,24 @@ blockquote {
 	margin: 0px;
 	font-style: italic;
 }
+
+.light {
+	background: #ddd;
+	transition: background 0.3s;
+}
+
+.dark {
+	background: #222;
+	color: #ddd;
+	transition: background 0.3s;
+}
+
+.dark h1,
+.dark h2,
+.dark h3 {
+	color: #fff;
+}
+
+.dark code {
+	background-color: #333;
+}
