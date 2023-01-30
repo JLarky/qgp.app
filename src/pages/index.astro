@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Edit from '../components/edit/Edit.astro';
 ---
 
 <!DOCTYPE html>
@@ -116,6 +117,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				Like we said, we're just getting started. If you have any ideas or questions, feel free to
 				open an issue on the <a href="https://github.com/JLarky/qgp.app">GitHub repo</a>.
 			</p>
+			<Edit file="src/pages/index.astro" />
 		</main>
 		<Footer />
 		<style>
