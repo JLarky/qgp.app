@@ -15,7 +15,7 @@ All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                                           |
 | :------------------------ | :--------------------------------------------------------------- |
-| `npm i -g @antfu/ni`      | Adds `ni` binary to help you with the insallation                 |
+| `npm i -g @antfu/ni`      | Adds `ni` binary to help you with the insallation                |
 | `ni`                      | Installs dependencies                                            |
 | `npm run dev` or `nr dev` | Starts local dev server at `localhost:3000` and `localhost:5173` |
 | `npm run build`           | Build your production site to `./dist/`                          |
