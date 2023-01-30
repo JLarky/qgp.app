@@ -1,0 +1,36 @@
+---
+import pr from './pr.svg';
+import edit from './edit.svg';
+import github from './github.svg';
+export type Props = { file?: string };
+const { file } = Astro.props as Props;
+---
+
+<details>
+	<summary>Help us improve this page</summary>
+	<a href={`https://github.com/JLarky/qgp.app/edit/main/${file}`}
+		>Github <img width="20" alt="Open in Github" src={github} /></a
+	>
+	{
+		file && (
+			<a href={`https://pr.new/github.com/JLarky/qgp.app/edit/main/${file}?startScript=dev1`}>
+				<img alt="Edit in Web Publisher" src={edit} />
+			</a>
+		)
+	}
+	<a href="https://pr.new/github.com/JLarky/qgp.app/"><img alt="Open in Codeflow" src={pr} /></a>
+</details>
+
+<style>
+	details {
+		min-height: 42px;
+		font-size: 14px;
+		padding-left: 2rem;
+	}
+	details summary {
+		cursor: pointer;
+	}
+	img {
+		vertical-align: bottom;
+	}
+</style>
