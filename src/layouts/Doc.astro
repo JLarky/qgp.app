@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Edit from '../components/edit/Edit.astro';
+
+type Props = CollectionEntry<'docs'>['data'];
+
+const { title, description, pubDate, updatedDate, image, video, mdx } = Astro.props as Props;
+
+const currentPage = Astro.url.pathname.replace(/\/$/, '/index');
+
+function mdOrMdx(bool: boolean) {
+	return bool ? '.mdx' : '.md';
+}
+
+const pageWithExtension = currentPage + mdOrMdx(mdx);
+
+const contentPage = pageWithExtension.replace('/docs', 'src/content/docs');
+---
+
+<article class="max-w-2xl mx-auto p-4 space-y-4 flex flex-col items-center justify-center">
+	<h1 class="text-4xl font-bold">{title}</h1>
+	{
+		video ? (
+			<iframe
+				src={video}
+				title={title}
+				allowfullscreen
+				class="aspect-w-16 aspect-h-9 rounded-2xl w-full"
+			/>
+		) : image ? (
+			<img
+				src={image}
+				alt={description}
+				class="aspect-w-16 aspect-h-9 max-h-96 w-full rounded-2xl"
+			/>
+		) : null
+	}
+	<p>{description}</p>
+	<p>Published: {pubDate.toLocaleDateString()}</p>
+	<p>Last Updated: {updatedDate?.toLocaleDateString()}</p>
+	<div
+		class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80 flex flex-col items-center justify-center"
+	>
+		<slot />
+	</div>
+	<Edit file={`${contentPage}`} />
+</article>

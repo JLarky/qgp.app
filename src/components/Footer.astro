@@ -1,9 +1,27 @@
 ---
+import Github from '../assets/github.svg';
+import Twitter from '../assets/Twitter-logo.svg';
+import Edit from './edit/Edit.astro';
+
 const today = new Date();
 ---
 
-<footer>
-	&copy; {today.getFullYear()}
+<footer class="text-xs flex items-center justify-center gap-2">
+	<a href="https://twitter.com/JLarky" target="_blank"
+		><img
+			src={Twitter}
+			alt="Twitter"
+			class="w-10 h-10 bg-primary-NOTSODARK rounded-full hover:scale-110 transition duration-300 ease-in-out p-1"
+		/></a
+	>
+	<a href="https://github.com/JLarky/qgp.app" target="_blank"
+		><img
+			src={Github}
+			alt="Github"
+			class="w-10 h-10 hover:scale-110 bg-primary-NOTSODARK rounded-full transition duration-300 ease-in-out p-1"
+		/></a
+	>
+	<p>© {today.getFullYear()}</p>
 </footer>
 <style>
 	footer {

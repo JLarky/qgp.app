@@ -1,8 +1,11 @@
 ---
 import Layout from '../layouts/SPA-layout.astro';
 import { App } from '../qgp/react';
+import '../styles/global.css';
 ---
 
 <Layout title="">
-	<App client:only="react" />
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<App client:only="react" />
+	</div>
 </Layout>
