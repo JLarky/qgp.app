@@ -16,8 +16,15 @@ export const Layout = () => {
 					<Link className={style.active} to="/SPA">
 						SPA
 					</Link>
-					<a href="https://twitter.com/JLarky">Twitter</a>
-					<a href="https://github.com/JLarky/qgp.app">GitHub</a>
+					<a href="https://twitter.com/JLarky" target="_blank">
+						Twitter
+					</a>
+					<a href="https://github.com/JLarky/qgp.app" target="_blank">
+						GitHub
+					</a>
+					<a href="https://qgp.vercel.app/" target="_blank">
+						Docs
+					</a>
 				</nav>
 			</header>
 			<Outlet />
@@ -34,7 +41,7 @@ export const SPA = () => {
 	};
 
 	return (
-		<div className={theme}>
+		<div className={theme + ' root'}>
 			<button className={style.toggleTheme} onClick={toggleTheme}>
 				Toggle theme
 			</button>
@@ -53,9 +60,13 @@ export const Index = () => {
 	return (
 		<div>
 			<h1>Hello from Vite ⚡️</h1>
-			<p>You can only see this message if you are looking at it from Vite.</p>
 			<p>
-				Now click on <Link to="/SPA">SPA</Link> link
+				You can only see this message on the Vite dev server. If you want to work on the rest of the
+				website, you need to use the Astro dev server currently on running on port 3000{' '}
+				<a href="http://localhost:3000/">here</a>.
+			</p>
+			<p>
+				But, if you want to see the HMR in action, go to the <Link to="/SPA">SPA</Link> page.
 			</p>
 		</div>
 	);
@@ -102,8 +113,8 @@ export const Sidebar = () => {
 
 export const SPAIndex = () => {
 	return (
-		<div>
-			<h3>Examples of QGP's benefits</h3>
+		<div className="flex flex-col gap-2">
+			<h3>QGP Example SPA!</h3>
 			<p>
 				Toggle the theme with the button on the top-left. Now, click around the sidebar and come
 				back. Watch the URL. It changes without refreshing the page. This is how you know that this
@@ -112,9 +123,9 @@ export const SPAIndex = () => {
 			</p>
 
 			<p>
-				If you <a href="/">follow the instructions</a> to copy this template locally, you can edit
-				this text in <code>src/components/SPA.tsx</code> and see the changes without reloading the
-				entire page-- but only if you're running the Vite dev server that QGP set up.
+				If you follow <a href="/#create-qgp">the instructions</a> to copy the demo template, you can
+				edit this text in <code>src/components/SPA.tsx</code> and see the changes without reloading
+				the entire page-- but only if you're running the Vite dev server that QGP set up.
 			</p>
 
 			<p>
@@ -122,16 +133,18 @@ export const SPAIndex = () => {
 				<a href="http://localhost:3000">Astro</a> and <a href="http://localhost:5173">Vite</a>). The
 				Vite server is just for the React app, and the main difference is the{' '}
 				<a href="https://vitejs.dev/guide/why.html">HMR</a> experience. In Vite, the state of your
-				React app is preserved even after you edit the files that this page uses. In contrast, Astro
-				refreshes the entire web page every time you save any file that it uses.
+				React app is preserved even after you edit the files that it uses. In contrast, Astro
+				refreshes the entire web page every time you save any file that it uses -- losing the app's
+				state.
 			</p>
 
 			<p>
-				This example app has several examples of such state like the ⚡️ button in the header, the
-				toggle theme button in the upper-left corner,{' '}
-				<Link to="/SPA/counter">a classic counter</Link>, and{' '}
+				This example app has several demonstrations of such state like the ⚡️ button in the header,
+				the toggle theme button in the upper-left corner, and{' '}
+				<Link to="/SPA/counter">a classic counter</Link>. It also includes{' '}
 				<Link to="/SPA/nested">some nested routes</Link> to show that your React app doesn't have to
-				live inside one route.
+				live inside one route. After you're done here, you can either start building or you can
+				check out <a href="http://qgp.vercel.app">the docs</a> to learn more about QGP.
 			</p>
 		</div>
 	);
@@ -139,7 +152,10 @@ export const SPAIndex = () => {
 
 export const NotFound = () => {
 	return (
-		<div>
+		<div
+			className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+			role="alert"
+		>
 			<h1>404</h1>
 			<p>This page was routed through Astro into React Router. Pretty cool, huh?</p>
 			<p>
@@ -162,8 +178,9 @@ export const Nested = () => {
 			{id != '' && <Link to={'/SPA/nested/' + prev}>Previous</Link>}{' '}
 			{!!next && <Link to={'/SPA/nested/' + next}>Next</Link>}
 			<p>
-				This example takes advantage of a little known hack of Astro's routing system. Astro allows
-				you to implement a custom 404 page which we simply redirect back to our single page
+				This template takes advantage of a little known hack of Astro's routing system. Astro allows
+				you to implement a custom 404 page for all unspecified routes with a file at{' '}
+				<code>/404.astro</code>. We simply redirect that 404 page back into our single page
 				application.
 			</p>
 			<p>
@@ -189,7 +206,9 @@ export const Counter = () => {
 				not be shared between the two servers.
 			</p>
 			<p>Counter: {count}</p>
-			<button onClick={() => setCount(count + 1)}>Increment</button>
+			<button className="p-2 m-2 bg-blue-500 text-white" onClick={() => setCount(count + 1)}>
+				Increment
+			</button>
 		</div>
 	);
 };

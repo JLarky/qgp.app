@@ -1,7 +1,7 @@
 ---
 import pr from './pr.svg';
 import edit from './edit.svg';
-import github from './github.svg';
+import github from '../../assets/github.svg';
 export type Props = { file?: string };
 const { file } = Astro.props as Props;
 ---
@@ -9,7 +9,7 @@ const { file } = Astro.props as Props;
 <details>
 	<summary>Help us improve this page</summary>
 	<a href={`https://github.com/JLarky/qgp.app/edit/main/${file}`}
-		>Github <img width="20" alt="Open in Github" src={github} /></a
+		><img width="30" alt="Open in Github" src={github} /></a
 	>
 	{
 		file && (

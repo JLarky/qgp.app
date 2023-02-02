@@ -2,8 +2,11 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Infobox from '../components/Infobox.astro';
 import Edit from '../components/edit/Edit.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import logo from '../assets/1.png';
+import '../styles/global.css';
 ---
 
 <!DOCTYPE html>
@@ -11,139 +14,62 @@ import Edit from '../components/edit/Edit.astro';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
+	<body
+		class="bg-primary-DARK text-primary-LIGHT flex flex-col items-center justify-center min-h-screen"
+	>
 		<Header title={SITE_TITLE} />
-		<main>
-			<h1>Welcome to QGP 👋 ⚛️</h1>
-			<p class="warning">
+		<main class="mx-auto max-w-3xl p-4 min-h-screen flex flex-col justify-center">
+			<div class="flex justify-center">
+				<img src={logo} alt="QGP Logo" class="w-64 rounded-2xl shadow-lg" />
+			</div>
+			<h2 class="text-2xl text-center font-bold mt-4 mb-2">Make fast apps -- fast!</h2>
+			<Infobox warning={true}>
 				This project is still in alpha at this point. While we're sure that we haven't covered every
 				edge case, we do use it to power our product at <a href="https://fogbender.com"
 					>fogbender.com</a
 				>. So, it should be stable enough for you to try it out. If you find any bugs, please open
-				an issue on <a href="https://github.com/JLarky/qgp.app/issues">GitHub</a>!
-			</p>
-			<h2>Create Fast Apps -- Fast</h2>
-			<h2>Why QGP?</h2>
-			<h3>The power of Astro</h3>
-			<p>
-				Everything that you see right now is powered by <a href="https://astro.build/">Astro</a>. It
-				started as a static site generator with a mix of HTML and JSX style templating, but it's
-				become so much more! Here's a small list of it's extensive features:
-			</p>
-			<ul>
-				<li>Native TypeScript and MDX support -- No need for plugins or extra configuration.</li>
-				<li>
-					Bring Your Own Framework -- <a href="https://astro.build/integrations/frameworks/"
-						>Use React, Vue, Svelte, etc.</a
-					> (Astro components are great too!)
-				</li>
-				<li>Dynamic Route Rendering -- Choose between SSG and SSR by route.</li>
-				<li>
-					Island Architecture -- Choose when and how to hydrate your app with JavaScript (with 0kb
-					by default!)
-				</li>
-				<li>
-					Serverless Adapters for Vercel, Netlify, and Deno Deploy -- or build the app and host it
-					yourself!
-				</li>
-				<li>
-					and more! Check out the <a href="https://astro.build"
-						>website for a full list of features</a
-					>.
-				</li>
-			</ul>
-			<h3>"Fat Islands"</h3>
-			<p>
-				With Astro, you can use as little client-side javascript as you want. This counter is
-				powered by a simple script tag embedded right into the <code>index.astro</code> template.
-			</p>
-			<button id="counter">Click me (requires JS)</button>
-			<script>
-				let count = 0;
-				// this is actually typescript code 🤯
-				const button = document.getElementById('counter')!;
-				button.innerText = 'Click me: ' + count;
-				button.addEventListener('click', () => {
-					count++;
-					button.innerText = 'Click me again: ' + count;
-				});
-			</script>
-			<p>
-				But you can also use as much client-side javascript as you want. This example has an <a
-					href="/SPA">entire React App in it</a
-				> with multiple nested routes powered by React Router. While Astro was envisioned as a Multi-Page
-				Application framework, QGP helps you blur these lines by placing one or more SPA's inside of
-				your MPA.
-			</p>
-			<h3>Why not just use Astro?</h3>
-			<p>
-				So, what's the point of QGP if Astro is already so great? Well, there's one limitation that
-				we haven't explained yet. While Astro is built on top of Vite, it runs additional build
-				steps that are not compatible with Vite's HMR.
-			</p>
-			<p>
-				This limitation is necessary for Astro to do some of its cool optimizations, but it is not
-				ideal for developing complex applications. Lazy loading entire React applications into your
-				site is nice, but testing them can be difficult when your state is lost every time you save
-				a file.
-			</p>
-			<h3>Enter QGP</h3>
-			<p>
-				QGP simply sets up an additional Vite server that runs alongside Astro. This allows you to
-				use Vite's HMR to develop your React app, while still using Astro's incredibly powerful
-				tools.
-			</p>
-			<h3>Local Demo Instructions</h3>
-			<p class="action">
-				To try QGP and see the benefits for yourself, here's how you can run this template locally.
-			</p>
-			<ol>
-				<li>Open a terminal in your folder of choice</li>
-				<li>
-					Type <code>npm create qgp -t qgp-demo qgp-demo</code> to start.
-				</li>
-				<li>
-					Type <code>cd qgp-demo</code> to enter the new folder.
-				</li>
-				<li>
-					Type <code>npm i -g @antfu/ni</code> to install a tool that connects your package manager.
-				</li>
-				<li>
-					Type <code>ni</code> to set up the project.
-				</li>
-				<li>
-					Type <code>nr dev</code> to start the dev server.
-				</li>
-				<li>
-					Open <a href="http://localhost:3000">http://localhost:3000</a> to work on the entire Astro
-					website.
-				</li>
-				<li>
-					Open <a href="http://localhost:5173">http://localhost:5173</a> to work on just the React app
-					in Vite.
-				</li>
-			</ol>
-			<h3>What's Next?</h3>
-			<p>
-				Like we said, we're just getting started. If you have any ideas or questions, feel free to
-				open an issue on the <a href="https://github.com/JLarky/qgp.app">GitHub repo</a>.
-			</p>
+				an issue on <a href="https://github.com/JLarky/create-qgp/issues">GitHub</a>!
+			</Infobox>
+			<div class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-70">
+				<h4 class="text-2xl m-2 font-bold text-center" id="create-qgp">Create QGP App</h4>
+				<p class="p-3">
+					You can use the CLI to download a pre-configured template with an example app. Just follow
+					these easy steps:
+				</p>
+				<ol class="list-decimal list-inside m-1">
+					<li class="p-1">Open a terminal in your folder of choice</li>
+					<li class="p-1">
+						Type <code>npm create qgp -t qgp-demo qgp-demo</code> to download the template. (You can
+						replace the second <code>qgp-demo</code> with any folder name you want.)
+					</li>
+					<li class="p-1">
+						Type <code>cd qgp-demo</code> (or your project name) to enter the new folder.
+					</li>
+					<li class="p-1">
+						Type <code>npm i -g @antfu/ni</code> to install a helpful tool.
+					</li>
+					<li class="p-1">
+						Type <code>ni</code> to set up the project.
+					</li>
+					<li class="p-1">
+						Type <code>nr dev</code> to start the dev server.
+					</li>
+					<li class="p-1">
+						Open <a href="http://localhost:3000">http://localhost:3000</a> to see the entire site on
+						the Astro dev server.
+					</li>
+					<li class="p-1">
+						Open <a href="http://localhost:5173">http://localhost:5173</a> to see the React app on the
+						Vite dev server.
+					</li>
+				</ol>
+				<p>
+					You can just enter <code>npm create qgp@latest</code> if you want to explore the other templates,
+					or create your own!
+				</p>
+			</div>
 			<Edit file="src/pages/index.astro" />
+			<Footer />
 		</main>
-		<Footer />
-		<style>
-			.warning {
-				background: #f8d7da;
-				margin: 0 -1rem 1rem;
-				padding: 1rem;
-				border-radius: 0.25rem;
-			}
-			.action {
-				background: #d4edda;
-				margin: 0 -1rem 1rem;
-				padding: 1rem;
-				border-radius: 0.25rem;
-			}
-		</style>
 	</body>
 </html>

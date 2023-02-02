@@ -1,0 +1,59 @@
+---
+title: 'The Create QGP CLI Tool'
+description: 'Creating a new QGP project is as easy as running a few commands in your terminal.'
+pubDate: '02/01/2023'
+updatedDate: '02/01/2023'
+mdx: true
+---
+
+import Infobox from '../../../components/Infobox.astro';
+
+## **About the CLI**
+
+To create a new QGP project, you can use the `create-qgp` CLI tool. We have created a few templates to help you understand QGP, get started with a new project, or migrate a project from **Create React App** (CRA) to QGP.
+
+<br />
+
+<Infobox hint={true}>
+	We recommend you start with the *qgp-demo* template as it demonstrates some of the core features
+	of QGP. Here's the <a href="#create-qgp">Installation Instructions</a>. We'll talk about the other
+	templates soon.
+</Infobox>
+
+<br />
+
+## **Installation and Usage**
+
+If you run the CLI by itself by typing `npm create qgp@latest` in the terminal, you will be prompted to choose a template. You can also specify a template by running `npm create qgp@latest -t <template-name> <folder-name>` with the template name and folder name of your choice although this doesn't always work right now (Alpha software is fun!).
+
+## **The Templates**
+
+Right now, we have three templates available:
+
+<ul>
+	<li>
+		<strong>qgp-demo</strong> - A simple demonstration of QGP and Astro's core features.
+	</li>
+	<li>
+		<strong>qgp-cra</strong> - A template to migrate a project from CRA to QGP
+	</li>
+	<li>
+		<strong>qgp-blank</strong> - A blank template to start from scratch with Astro, Vite, and React.
+	</li>
+</ul>
+
+<br />
+
+If you have ideas for other templates, feel free to open an issue on the [GitHub repository](http://github.com/JLarky/create-qgp) or submit a pull request.
+
+## **The qgp-demo Template**
+
+The `qgp-demo` template is a simple demonstration of QGP and Astro's core features. It's the Astro blog template with a few modifications to demonstrate how QGP works. It is our recommended starting point for people new to QGP. You can find the source code for the template [here](https://github.com/JLarky/create-qgp/tree/master/template-qgp-demo). If you like QGP and you want to use it at work, you can show this template to your boss to demonstrate how easy it is to use.
+
+## **The qgp-cra Template**
+
+The `qgp-cra` template is a template to migrate a project from CRA to QGP. It's literally the entirety of Create React App's starter template held inside of a single route in Astro. You can find the source code for the template [here](https://github.com/JLarky/create-qgp/tree/master/template-astro-vite-cra-ts). After you've convinced your boss to let you use QGP, you can use this template to migrate your existing CRA project to QGP. Click [here](/docs/migrating-a-website/from-create-react-app) to learn more about migrating a project from CRA to QGP.
+
+## **The qgp-blank Template**
+
+The `qgp-blank` template is a blank template to start from scratch with Astro, Vite, and React. There's a few routes to remind you how things work, but it's a mostly blank canvas waiting for you to make your masterpiece. You can find the source code for the template [here](https://github.com/JLarky/create-qgp/tree/master/template-astro-vite-react-clean). If you already understand how to build single page applications inside of Astro, you can use this template to start from scratch without deleting much.

@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import BaseHead from '../components/BaseHead.astro';
+import LeftSideBar from '../components/docs/LeftSideBar.astro';
+import RightSideBar from '../components/docs/RightSideBar.astro';
+import MobileMenu from '../components/docs/MobileMenu.astro';
+---
+
+<html>
+	<BaseHead />
+	<body
+		class="bg-primary-DARK text-primary-LIGHT flex min-h-screen flex-col items-center transition-colors duration-300"
+	>
+		<Header />
+
+		<main
+			class="grid w-full max-w-7xl flex-1 grid-cols-1 gap-4 md:grid-cols-[250px_auto] lg:grid-cols-[250px_auto_250px]"
+		>
+			<nav
+				title="Site Navigation"
+				class="sticky top-20 col-span-1 hidden h-auto max-h-[calc(100vh-80px)] w-full flex-col justify-start overflow-y-auto bg-default pt-4 transition-colors duration-300 md:top-24 md:flex md:max-h-[calc(100vh-96px)] md:pt-0 md:[margin-inline-start:16px]"
+			>
+				<LeftSideBar />
+			</nav>
+
+			<MobileMenu />
+
+			<div class="col-span-1 flex min-h-full w-full flex-col pt-5" id="content">
+				<slot />
+			</div>
+
+			<div class="md:[margin-inline-end:16px]">
+				<nav
+					title="Table of Contents"
+					class="sticky top-[100px] col-span-1 hidden h-auto max-h-[calc(100vh-100px)] w-full [padding-inline-end:16px] lg:mb-12 lg:flex lg:flex-col lg:justify-start"
+				>
+					<RightSideBar />
+				</nav>
+			</div>
+		</main>
+	</body>
+</html>

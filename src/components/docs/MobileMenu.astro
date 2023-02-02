@@ -1,0 +1,64 @@
+---
+import LeftSideBar from './LeftSideBar.astro';
+import RightSideBar from './RightSideBar.astro';
+---
+
+<script>
+	const mobileMenu = document.querySelector('.mobile-menu') as HTMLElement;
+	const mobileMenuButton = document.querySelector('.mobile-menu-button')!;
+	function toggleMobileMenu() {
+		if (mobileMenu.style.display === 'none') {
+			mobileMenu.style.display = 'block';
+		} else {
+			mobileMenu.style.display = 'none';
+		}
+	}
+	mobileMenuButton.addEventListener('click', toggleMobileMenu);
+</script>
+
+<button class="mobile-menu-button">
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="48"
+		height="48"
+		viewBox="0 0 48 48"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="4"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		class="text-primary-NOTSOLIGHT hover:text-primary-MEDIUM transition-colors duration-500 ease-in-out"
+	>
+		<line x1="12" y1="18" x2="36" y2="18"></line>
+		<line x1="12" y1="6" x2="36" y2="6"></line>
+		<line x1="12" y1="30" x2="36" y2="30"></line>
+	</svg>
+</button>
+<div class="mobile-menu">
+	<LeftSideBar />
+	<div class="absolute left-60 top-10 w-full bg-primary-NOTSODARK"><RightSideBar /></div>
+
+	<style>
+		.mobile-menu-button {
+			display: none;
+		}
+		.mobile-menu {
+			display: none;
+		}
+		@media (max-width: 768px) {
+			.mobile-menu-button {
+				display: block;
+				position: fixed;
+				right: 5px;
+			}
+			.mobile-menu {
+				position: fixed;
+				background-color: #14321e;
+				border-radius: 10px;
+				padding: 10px;
+				z-index: 50;
+				font-size: 1.25rem;
+			}
+		}
+	</style>
+</div>
