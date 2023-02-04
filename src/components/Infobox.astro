@@ -5,64 +5,23 @@ export interface Props {
 }
 
 const { warning, hint } = Astro.props;
+const className = warning
+	? 'bg-red-100 bg-opacity-80 border border-red-400 text-red-700'
+	: hint
+	? 'bg-blue-100 bg-opacity-80 border border-blue-400 text-blue-900'
+	: 'bg-yellow-100 bg-opacity-80 border border-yellow-400 text-yellow-700';
 ---
 
-{
-	warning ? (
-		<div
-			class="bg-red-100 bg-opacity-80 border border-red-400 text-red-700 px-4 py-3 rounded-xl relative infobox"
-			role="alert"
-		>
-			<span class="block sm:inline">
-				<slot />
-			</span>
-		</div>
-
-		<style>
-		.infobox a {
-			color: #1a202c;
-			text-decoration: underline;
-		}	
-		</style>
-	) : null
-}
-{
-	hint ? (
-		<div
-			class="bg-blue-100 bg-opacity-80 border border-blue-400 text-blue-900 px-4 py-3 rounded-xl relative infobox"
-			role="alert"
-		>
-			<strong class="font-bold">Pro Tip!</strong>
-			<span class="block sm:inline">
-				<slot />
-			</span>
-		</div>
-
-		<style>
-		.infobox a {
-			color: #1a202c;
-			text-decoration: underline;
-		}	
-		</style>
-	) : null
-}
-{
-	!warning && !hint ? (
-		<div
-			class="bg-yellow-100 bg-opacity-80 border border-yellow-400 text-yellow-700 px-4 py-3 rounded-xl relative infobox"
-			role="alert"
-		>
-			<strong class="font-bold">Note:</strong>
-			<span class="block sm:inline">
-				<slot />
-			</span>
-		</div>
-
-		<style>
-		.infobox a {
-			color: #1a202c;
-			text-decoration: underline;
-		}	
-		</style>
-	) : null
-}
+<div class={'px-4 py-3 rounded-xl relative ' + className} role="alert">
+	{hint && <strong class="font-bold">Pro Tip!</strong>}
+	{!hint && !warning && <strong class="font-bold">Note:</strong>}
+	<span class="block sm:inline">
+		<slot />
+	</span>
+</div>
+<style>
+	div :global(a) {
+		color: #1a202c;
+		text-decoration: underline;
+	}
+</style>
