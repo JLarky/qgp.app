@@ -1,0 +1,42 @@
+---
+import RightSideBar from './RightSideBar.astro';
+import LeftSideBar from './LeftSideBar.astro';
+---
+
+<script>
+	const mobileMenu = document.querySelector('.mobile-menu') as HTMLElement;
+	const mobileMenuButton = document.querySelector('.mobile-menu-button')!;
+	function toggleMobileMenu() {
+		mobileMenu.classList.toggle('hidden');
+	}
+	mobileMenuButton.addEventListener('click', toggleMobileMenu);
+</script>
+
+<button
+	class="mobile-menu-button fixed top-10 right-0 z-50 md:hidden"
+	aria-label="Toggle mobile menu"
+>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="48"
+		height="48"
+		viewBox="0 0 48 48"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="4"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		class="text-primary-NOTSOLIGHT hover:text-primary-MEDIUM transition-colors duration-500 ease-in-out"
+	>
+		<line x1="12" y1="18" x2="36" y2="18"></line>
+		<line x1="12" y1="6" x2="36" y2="6"></line>
+		<line x1="12" y1="30" x2="36" y2="30"></line>
+	</svg>
+</button>
+<div class="mobile-menu fixed hidden z-20 bg-primary-NOTSODARK">
+	<LeftSideBar />
+
+	<div class="fixed left-64 top-8 w-fit bg-primary-NOTSODARK">
+		<RightSideBar />
+	</div>
+</div>
