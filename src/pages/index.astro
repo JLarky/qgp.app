@@ -21,15 +21,28 @@ import logo from '../assets/1.png';
 			<div class="flex justify-center">
 				<img src={logo} alt="QGP Logo" class="w-64 rounded-full shadow-lg" />
 			</div>
-			<h2 class="text-2xl text-center font-bold mt-4 mb-2">Make fast apps -- fast!</h2>
-			<Infobox warning={true}>
-				This project is still in alpha at this point. While we're sure that we haven't covered every
-				edge case, we do use it to power our product at <a href="https://fogbender.com"
-					>fogbender.com</a
-				>. So, it should be stable enough for you to try it out. If you find any bugs, please open
-				an issue on <a href="https://github.com/JLarky/create-qgp/issues">GitHub</a>!
+			<h1 class="text-4xl text-center font-bold mt-4 mb-2">Build faster webapps.</h1>
+			<Infobox warning>
+				This project is in alpha state, but we use it in production at <a
+					href="https://fogbender.com">fogbender.com</a
+				>. If you find any bugs, please <a href="https://github.com/JLarky/create-qgp/issues"
+					>open an issue</a
+				>.
+				<!-- See also this section in the docs for more info. -->
 			</Infobox>
 			<div class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-70">
+				<p class="p-3">
+					QGP is a tool to help you build webapps with Astro using your favorite frontend framework
+					(current templates use React, but SolidJS and others are coming soon). It uses Vite to
+					provide you with great DX, and it uses Astro to provide your users with great SEO and
+					performance.
+				</p>
+				<p class="p-3">
+					In short you can think of QGP as easy way to extend your existing SPA with SSR/SSG pages
+					and allows you to opt in into server side rendering for specific pages. This could be a
+					great option to gradually migrate your existing CRA (Create React App) that doesn't
+					require a full rewrite.
+				</p>
 				<h4 class="text-2xl m-2 font-bold text-center" id="create-qgp">Create QGP App</h4>
 				<p class="p-3">
 					You can use the CLI to download a pre-configured template with an example app. Just follow
