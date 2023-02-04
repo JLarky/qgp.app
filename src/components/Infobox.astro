@@ -12,7 +12,7 @@ const className = warning
 	: 'bg-yellow-100 bg-opacity-80 border border-yellow-400 text-yellow-700';
 ---
 
-<div class={'px-4 py-3 rounded-xl relative ' + className} role="alert">
+<div class={'px-4 py-3 rounded-xl relative not-prose ' + className} role="alert">
 	{hint && <strong class="font-bold">Pro Tip!</strong>}
 	{!hint && !warning && <strong class="font-bold">Note:</strong>}
 	<span class="block sm:inline">

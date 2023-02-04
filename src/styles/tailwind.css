@@ -15,7 +15,14 @@ html {
 	scroll-padding: 2rem;
 }
 
-code {
+.prose :where(code):not(:where([class~="not-prose"] *))::before {
+  content: "";
+}
+.prose :where(code):not(:where([class~="not-prose"] *))::after {
+  content: "";
+}
+
+.prose code {
 	font-family: 'Fira Code', monospace;
 	font-size: 1.1rem;
 	background-color: #000000;

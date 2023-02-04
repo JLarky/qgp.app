@@ -19,6 +19,18 @@ module.exports = {
 					LIGHT: '#FCE3E3',
 				},
 			},
+			// https://tailwindcss.com/docs/typography-plugin#adding-custom-color-themes
+			typography: ({ theme }) => ({
+				qgp: {
+					css: {
+						'--tw-prose-body': theme('colors.primary.LIGHT'),
+						'--tw-prose-headings': theme('colors.primary.LIGHT'),
+						'--tw-prose-bold': theme('colors.primary.LIGHT'),
+						'--tw-prose-links': theme('colors.primary.MEDIUM'),
+						'--tw-prose-counters': theme('colors.secondary.LIGHT'),
+					},
+				},
+			}),
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],

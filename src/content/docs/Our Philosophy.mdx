@@ -5,65 +5,35 @@ pubDate: '02/01/2023'
 updatedDate: '02/01/2023'
 ---
 
-## **What we don't want to do**
+## What we don't want to do
 
-<ul
- class="list-decimal list-inside p-2 font-sans leading-relaxed tracking-wide">
->
-<li>QGP is not attempting to replace Astro or Vite. We just think that they are both fantastic tools
-	and that they can be used together for a great developer experience.</li>
+1. QGP is not attempting to replace Astro or Vite. We just think that they are both fantastic tools
+   and that they can be used together for a great developer experience.
 
-<li>
-	QGP is not attempting to take over your entire project. We pride ourselves on a modular
-	installation with the majority of the files hidden away in a folder to themselves. This means that
-	you can easily remove QGP from your project if you decide that it is not right for you.
-</li>
+2. QGP is not attempting to take over your entire project. We pride ourselves on a modular
+   installation with the majority of the files hidden away in a folder to themselves. This means that
+   you can easily remove QGP from your project if you decide that you no longer need it.
 
-<li>QGP is not attempting to solve every problem. Although we like to think of ourselves as a replacement for something like Create React App, we decided not to be opinionated about things like testing and linting. We want to give you the tools to make those decisions yourself.</li>
-</ul>
+3. QGP is not attempting to solve every problem. You would need to rely on Astro and Vite to bring some of the integrations that QGP does not provide, or add some tools like testing and linting yourself.x
 
-## **What we do want to do**
+## What we do want to do
 
-<ul
- class="list-decimal list-inside p-2 font-sans leading-relaxed tracking-wide">
->
-<li>QGP wants to be approachable. With our pre-configuration process, we hope to make the development experience of complex applications in Astro as easy as possible.</li>
+1. QGP wants to be approachable. With our pre-configuration process, we hope to make the development experience of complex applications in Astro as easy as possible.
 
-<li>
-	QGP wants to be composable. Just like removing QGP should be easy, extending it should be as well.
-</li>
+2. QGP wants to be composable. Just like removing QGP should be easy, extending it should be as well.
 
-<li>QGP wants to be accessible. QGP is made for developers by developers. Contribution should be simple and fun.</li>
-</ul>
+3. QGP wants to be accessible. QGP is made for developers by developers. Contribution should be simple and fun.
 
-## **Good Fits**
+## Good Fits
 
-<ul class="list-decimal list-inside p-2 font-sans leading-relaxed tracking-wide">
-	><li>A mostly static site with an extremely dynamic dashboard, game, or other application.</li>
-	<li>
-		A complex single page application with a few static parts such as a landing page or
-		documentation.
-	</li>
-	<li>
-		A blend of multiple complex applications within a single project-- even different
-		frameworks!{' '}
-	</li>
-</ul>
+- A mostly static site with an extremely dynamic dashboard, game, or other application.
+- A complex single page application with a few static parts such as a landing page or
+  documentation.
+- A blend of multiple complex applications within a single project -- even different
+  frameworks!
 
-## **Bad Fits**
+## Bad Fits
 
-<ul class="list-decimal list-inside p-2 font-sans leading-relaxed tracking-wide">
-	>
-	<li>
-		A mostly static site with little dynamic content like simple blogs or documentation.
-		(Ironically... just use Astro by itself!).
-	</li>
-	<li>
-		A complex single page application with no static pages like Figma or Excalidraw. (Unless you
-		really want to...)
-	</li>
-	<li>
-		...anything else? We're not sure yet. (Not being arrogant-- those first two cover a lot of
-		ground!)
-	</li>
-</ul>
+- A mostly static site like blogs or documentation. Just use Astro. You won't get much benefits from using HMR if you don't have a lot of stateful components.
+
+- Complex application where JS payload size is not a concern. Just use T3 stack, Remix (HMR soon?), SvelteKit, Nuxt, SolidStart, etc. Those tools are focused on building webapps and have a bigger ecosystem of existing integrations, templates and have more learning resources.

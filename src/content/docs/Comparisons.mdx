@@ -20,8 +20,6 @@ import Infobox from '../../components/Infobox.astro';
 
 While [Vite](https://vitejs.dev) is a great tool, it is not a framework. It is a development tool that is designed to be used within the context of a framework. You can easily build something with it that implements server-side rendering with island architecture, but putting all of that together yourself is a lot of work.
 
-<br />
-
 Astro is a great example of a framework that uses Vite under the hood, and it solves almost every problem one can imagine-- except for HMR. In this regard, it doesn't get much better than Vite. So, why not put them together? That's exactly what QGP does.
 
 ## **Why not Create React App?**
@@ -29,28 +27,18 @@ Astro is a great example of a framework that uses Vite under the hood, and it so
 [Create React App](https://create-react-app.dev)
 (**CRA**) was revolutionary in 2016. Front-end web tooling had gotten so complex that the entry-point was out of reach for many new developers. CRA made it easy to get started with React, and it was a huge success. But, it has grown outdated and neglected to the point where even [the React team has admitted](https://github.com/reactjs/reactjs.org/pull/5487#issuecomment-1409720741) that it should probably no longer be recommended.
 
-<br />
-
 There are many reasons for this. In this author's opinion, here are the top four:
 
-<br />
-
-<ul class="list-disc list-inside">
-	<li>It is not extendable. It's difficult to add plugins or modify the webpack config.</li>
-	<li>It is not flexible. You can only build client rendered single-page applications.</li>
-	<li>It is not performant. It is slow in many ways-- HMR, build times, and user experience.</li>
-	<li>It is not modern. The opinionated structure was great in 2016, but it isn't relevant now.</li>
-</ul>
-
-<br />
+- It is not extendable. It's difficult to add plugins or modify the webpack config.
+- It is not flexible. You can only build client rendered single-page applications.
+- It is not performant. It is slow in many ways-- HMR, build times, and user experience.
+- It is not modern. The opinionated structure was great in 2016, but it isn't relevant now.
 
 In conclusion, [here's a short video](https://www.youtube.com/watch?v=o9TJWEPc0Lk) from the popular influencer Theo Browne that explains why he doesn't think anyone should use CRA or WebPack anymore. He's not wrong. Apparently, WebPack has been experimenting with a Rust rewrite recently, so it may outlive CRA.
 
 ## **Why not Next.js?**
 
 This will not be a slander piece on Vercel. They are a great company and they have done a lot in terms of pushing the web forward. But, Next.js is not for everyone. And, it is currently in the midst of an extreme makeover that is not finished.
-
-<br />
 
 While it looks like Server Components will be revolutionary, the app directory has been out for four months as of the writing of this piece, and there is still no mutation API. We can't wait to see what it eventually becomes, but it's changing rapidly and it is hard to use in production. In the last month, Astro released 2.0 and Vite released 4.0 with remarkably few breaking changes. QGP is being used in production today.
 
