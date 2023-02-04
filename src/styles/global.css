@@ -1,3 +1,16 @@
+body {
+	background-image: url(/svg.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 66vw;
+	background-attachment: fixed;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding: 2rem;
+}
+
 code {
 	font-family: 'Fira Code', monospace;
 	font-size: 1.1rem;
@@ -28,17 +41,9 @@ details > a:hover {
 	background-color: transparent;
 }
 
-body {
-	background-image: url(/svg.svg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 66vw;
-	background-attachment: fixed;
-}
-
-html {
-	scroll-behavior: smooth;
-	scroll-padding: 2rem;
+.active {
+	font-weight: bolder;
+	text-decoration: underline;
 }
 
 @media prefers-reduced-motion {

@@ -9,9 +9,9 @@ const docFolders = docs.map((doc) => {
 	}
 });
 
-// Iterate through the documents and determine the folder based on the amount of slashes.
-// More than one slash means that the first part of the path is the folder name.
-// So, we return the first part of each path that has multiples slashes to get our folder names.
+// Iterate through the documents and determine the folders based on the amount of slashes in each id.
+// More than one slash means that the first part of the path is a folder name.
+// So, we return the first part of each path that has multiples slashes to get all of our folder names to use as categories.
 // This will only work one level deep, but that's fine for now.
 
 const uniqueFolders = [...new Set(docFolders)];
@@ -20,7 +20,7 @@ const uniqueFolders = [...new Set(docFolders)];
 
 const transformedFolders = uniqueFolders.map((folder) => transformSnakeCase(folder));
 
-// Transform the folder names to be more readable.
+// Transform the folder names to be more readable (e.g. "getting-started" => "Getting Started")
 
 function transformSnakeCase(str: string | undefined) {
 	if (!str)
@@ -38,7 +38,7 @@ function transformSnakeCase(str: string | undefined) {
 }
 
 // Create an object with the original folder name and the transformed folder name.
-// We kept the original so we can compare it to the links in the sidebar (to determine if one it's children is active.)
+// We kept the original so we can compare it to the links in the sidebar (to determine if one of it's children is active.)
 
 const coreDocs = docs.filter(
 	(doc) => doc.id.split('/')[0].includes('.md') || doc.id.split('/')[0].includes('.mdx')
@@ -50,24 +50,35 @@ const coreDocs = docs.filter(
 const currentPage = Astro.url.pathname;
 
 // Get the current page so we can determine if it's active in the sidebar.
----
 
-<style>
-	.active {
-		font-weight: bold;
-		font-decoration: underline;
-	}
-</style>
+function removeTrailingSlash(path: string) {
+	return path.replace(/\/$/, '');
+}
+
+function inPathWithoutHome(path: string, href: string) {
+	return removeTrailingSlash(path).startsWith(href) && href !== '/';
+}
+
+const isActive = (href: string) => {
+	return inPathWithoutHome(currentPage, href) ? 'active' : '';
+};
+---
 
 <h3 class="text-3xl font-bold">Table of Contents</h3>
 <ul>
 	<li>
-		<a class={currentPage === '/docs' ? 'active' : ''} href="/docs">Introduction</a>
+		<a
+			class={(isActive('/docs') && currentPage === '/docs') ||
+			(isActive('/docs') && currentPage === '/docs/')
+				? 'active'
+				: ''}
+			href="/docs">Introduction</a
+		>
 	</li>
 	{
 		coreDocs.map((doc) => (
 			<li>
-				<a class={currentPage === `/docs/${doc.slug}` ? 'active' : ''} href={`/docs/${doc.slug}`}>
+				<a class={isActive(`/docs/${doc.slug}`) ? 'active' : ''} href={`/docs/${doc.slug}`}>
 					{doc.data.title}
 				</a>
 			</li>
@@ -83,10 +94,7 @@ const currentPage = Astro.url.pathname;
 					if (doc.id.split('/')[0] === original) {
 						return (
 							<li>
-								<a
-									class={currentPage === `/docs/${doc.slug}` ? 'active' : ''}
-									href={`/docs/${doc.slug}`}
-								>
+								<a class={isActive(`/docs/${doc.slug}`)} href={`/docs/${doc.slug}`}>
 									{doc.data.title}
 								</a>
 							</li>

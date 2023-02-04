@@ -5,10 +5,11 @@ import BaseHead from '../components/BaseHead.astro';
 import LeftSideBar from '../components/docs/LeftSideBar.astro';
 import RightSideBar from '../components/docs/RightSideBar.astro';
 import MobileMenu from '../components/docs/MobileMenu.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <html>
-	<BaseHead />
+	<BaseHead title="QGP documentation" description="Documentation for the QGP project" />
 	<body
 		class="bg-primary-DARK text-primary-LIGHT flex min-h-screen flex-col items-center transition-colors duration-300"
 	>
@@ -39,5 +40,6 @@ import MobileMenu from '../components/docs/MobileMenu.astro';
 				</nav>
 			</div>
 		</main>
+		<Footer />
 	</body>
 </html>

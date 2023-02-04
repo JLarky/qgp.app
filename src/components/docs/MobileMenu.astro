@@ -1,22 +1,21 @@
 ---
-import LeftSideBar from './LeftSideBar.astro';
 import RightSideBar from './RightSideBar.astro';
+import LeftSideBar from './LeftSideBar.astro';
 ---
 
 <script>
 	const mobileMenu = document.querySelector('.mobile-menu') as HTMLElement;
 	const mobileMenuButton = document.querySelector('.mobile-menu-button')!;
 	function toggleMobileMenu() {
-		if (mobileMenu.style.display === 'none') {
-			mobileMenu.style.display = 'block';
-		} else {
-			mobileMenu.style.display = 'none';
-		}
+		mobileMenu.classList.toggle('hidden');
 	}
 	mobileMenuButton.addEventListener('click', toggleMobileMenu);
 </script>
 
-<button class="mobile-menu-button">
+<button
+	class="mobile-menu-button fixed top-10 right-0 z-50 md:hidden"
+	aria-label="Toggle mobile menu"
+>
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		width="48"
@@ -34,31 +33,10 @@ import RightSideBar from './RightSideBar.astro';
 		<line x1="12" y1="30" x2="36" y2="30"></line>
 	</svg>
 </button>
-<div class="mobile-menu">
+<div class="mobile-menu fixed hidden z-20 bg-primary-NOTSODARK">
 	<LeftSideBar />
-	<div class="absolute left-60 top-10 w-full bg-primary-NOTSODARK"><RightSideBar /></div>
 
-	<style>
-		.mobile-menu-button {
-			display: none;
-		}
-		.mobile-menu {
-			display: none;
-		}
-		@media (max-width: 768px) {
-			.mobile-menu-button {
-				display: block;
-				position: fixed;
-				right: 5px;
-			}
-			.mobile-menu {
-				position: fixed;
-				background-color: #14321e;
-				border-radius: 10px;
-				padding: 10px;
-				z-index: 50;
-				font-size: 1.25rem;
-			}
-		}
-	</style>
+	<div class="fixed left-64 top-8 w-fit bg-primary-NOTSODARK">
+		<RightSideBar />
+	</div>
 </div>
