@@ -30,7 +30,7 @@ html {
 	padding-inline: 4px;
 }
 
-a {
+a:not(:where(header *)) {
 	color: #22c55e; /* primary-MEDIUM */
 	cursor: pointer;
 	text-decoration: none;
