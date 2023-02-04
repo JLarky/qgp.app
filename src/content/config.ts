@@ -16,7 +16,6 @@ const docs = defineCollection({
 			.transform((str) => (str ? new Date(str) : undefined)),
 		image: z.string().optional(),
 		video: z.string().optional(),
-		mdx: z.boolean().optional(),
 	}),
 });
 

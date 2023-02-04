@@ -15,13 +15,15 @@ type Props = CollectionEntry<'docs'>;
 
 const doc = Astro.props;
 
-const { data } = doc;
+const { data, id } = doc;
+
+const idAndData = { id, ...data };
 
 const { Content } = await doc.render();
 ---
 
 <Layout>
-	<DocLayout {...data}>
+	<DocLayout {...idAndData}>
 		<Content />
 	</DocLayout>
 </Layout>
