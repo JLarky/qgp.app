@@ -1,7 +1,15 @@
 # QGP — Astro superpowered by Vite HMR
 
+To try out QGP:
+
 ```
-npx degit https://github.com/JLarky/qgp.app qgp-starter && cd qgp-starter # copy the template
+npx create-qgp@latest
+```
+
+To clone this repo:
+
+```
+git clone https://github.com/JLarky/qgp.app.git && cd qgp.app # clone repo
 npm i -g @antfu/ni && ni # install dependencies
 nr dev # start dev server
 ```
@@ -32,3 +40,4 @@ Check out [the website](https://qgp.deno.dev/).
 - Astro: [https://astro.build/](https://astro.build/)
 - Vite: [https://vitejs.dev/](https://vitejs.dev/)
 - Ryan Florence 👍 [tweet](https://twitter.com/JLarky/status/1618286589356171266)
+- [website template](https://github.com/jazzypants1989/astro-docs-template)
