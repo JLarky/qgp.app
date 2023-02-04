@@ -5,7 +5,7 @@
   "template": "node",
   "container": {
     "port": 3000,
-    "startScript": "start",
-    "node": "14"
+    "startScript": "dev1",
+    "node": "16"
   }
 }
