@@ -1,27 +1,15 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import logo from '../assets/1.png';
 ---
 
-<header>
-	<h2>
-		{SITE_TITLE}
-	</h2>
+<header
+	class="sticky top-0 left-0 z-50 flex items-center justify-center w-full h-8 px-4 py-2 text-primary-NOTSOLIGHT bg-primary-NOTSODARK shadow-lg rounded-b-lg opacity-80 hover:opacity-100 transition-opacity duration-1000 ease-in-out"
+>
+	<img src={logo} alt="QGP Logo" class="absolute top-0 left-0 w-10 h-10 rounded-full shadow-lg" />
 	<nav>
 		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/astro">Astro</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
-		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="/SPA">SPA</HeaderLink>
-		<HeaderLink href="https://twitter.com/JLarky" target="_blank">Twitter</HeaderLink>
-		<HeaderLink href="https://github.com/JLarky/qgp.app" target="_blank">GitHub</HeaderLink>
+		<HeaderLink href="/docs">Docs</HeaderLink>
+		<HeaderLink href="/faq">FAQ</HeaderLink>
 	</nav>
 </header>
-<style>
-	header {
-		margin: 0em 0 2em;
-	}
-	h2 {
-		margin: 0.5em 0;
-	}
-</style>

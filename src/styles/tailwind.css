@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	background-image: url(/svg.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 66vw;
+	background-attachment: fixed;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding: 2rem;
+}
+
+code {
+	font-family: 'Fira Code', monospace;
+	font-size: 1.1rem;
+	background-color: #000000;
+	color: #4bf07f;
+	padding-inline: 4px;
+}
+
+a {
+	color: #22c55e; /* primary-MEDIUM */
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-block;
+}
+
+a:hover {
+	color: #14321e; /* primary-NOTSODARK */
+	background-color: #22c55e; /* primary-MEDIUM */
+	border-radius: 0.5rem;
+	transition: all 0.5s ease-in-out;
+}
+
+footer > a:hover {
+	color: #14321e; /* primary-NOTSODARK */
+	background-color: transparent;
+}
+
+details > a:hover {
+	color: #14321e; /* primary-NOTSODARK */
+	background-color: transparent;
+}
+
+.active {
+	font-weight: bolder;
+	text-decoration: underline;
+}
+
+@media prefers-reduced-motion {
+	* {
+		animation: none !important;
+		transition: none !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+*:not(:active):focus-visible {
+	@apply outline-offset-4;
+}
+
+.light {
+	background: #ddd;
+	transition: background 0.3s;
+}
+
+.dark {
+	background: #222;
+	color: #ddd;
+	transition: background 0.3s;
+}
+
+.dark h1,
+.dark h2,
+.dark h3 {
+	color: #fff;
+}
+
+.dark code {
+	background-color: #333;
+}
+
+.dark button {
+	background-color: #333;
+}
