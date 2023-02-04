@@ -16,12 +16,19 @@ function inPathWithoutHome(path: string, href: string) {
 const isActive = href === pathname || inPathWithoutHome(pathname, href?.toString()!);
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a
+	href={href}
+	class:list={[
+		'hover:text-primary-LIGHT hover:bg-[#a8a5ff] text-[#a8a5ff]',
+		className,
+		{ 'font-semibold underline': isActive },
+	]}
+	{...props}
+>
 	<slot />
 </a>
 <style>
 	a {
-		color: #a8a5ff;
 		display: inline-block;
 		text-decoration: none;
 		font-size: 1.5rem;
@@ -29,7 +36,6 @@ const isActive = href === pathname || inPathWithoutHome(pathname, href?.toString
 	}
 
 	a:hover {
-		background-color: #a8a5ff;
 		padding: 0 1rem;
 	}
 </style>
