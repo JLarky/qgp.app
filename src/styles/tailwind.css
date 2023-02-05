@@ -30,7 +30,7 @@ html {
 	padding-inline: 4px;
 }
 
-a {
+a:not(:where(header *)) {
 	color: #22c55e; /* primary-MEDIUM */
 	cursor: pointer;
 	text-decoration: none;
@@ -52,11 +52,6 @@ footer > a:hover {
 details > a:hover {
 	color: #14321e; /* primary-NOTSODARK */
 	background-color: transparent;
-}
-
-.active {
-	font-weight: bolder;
-	text-decoration: underline;
 }
 
 @media prefers-reduced-motion {
