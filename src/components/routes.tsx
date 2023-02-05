@@ -24,12 +24,34 @@ export const routes = (): RouteObject[] => [
 					if (!slug) {
 						throw new Error('No slug');
 					}
-					// await new Promise((resolve) => setTimeout(resolve, 3000));
-					const url = new URL('http://localhost:3000/get_article/' + slug);
-					const res = await fetch(url);
-					if (res.ok) {
-						const data = await res.text();
-						const output = await transform(data, [sanitize({ allowElements: ['style'] })]);
+					let output = '';
+					if (import.meta.env.SSR && import.meta.env.PROD) {
+						// if (import.meta.env.SSR) {
+						console.log('SSR prod', slug);
+						try {
+							async function readFile(path: string) {
+								try {
+									const { readFile } = await import('fs/promises');
+									output = await readFile(path, 'utf-8');
+								} catch (err) {
+									throw err;
+								}
+							}
+							console.log(await readFile('dist/get_article/' + slug + '/index.html'));
+						} catch (err) {
+							console.error(err);
+						}
+					}
+					if (!output) {
+						// await new Promise((resolve) => setTimeout(resolve, 3000));
+						const url = new URL('http://localhost:3000/get_article/' + slug);
+						const res = await fetch(url);
+						if (res.ok) {
+							const data = await res.text();
+							output = await transform(data, [sanitize({ allowElements: ['style'] })]);
+						}
+					}
+					if (output) {
 						// check magical string
 						if (!output.startsWith('<!DOCTYPE html>\nMARKER')) {
 							throw new Error('Invalid response');
