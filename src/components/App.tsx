@@ -1,14 +1,19 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { createStaticRouter, StaticRouterProvider } from 'react-router-dom/server';
-import type { StaticHandlerContext } from '@remix-run/router';
 import { routes } from './routes';
+import { getContext } from '../ssr/context';
 
-export default ({ context }: { context?: StaticHandlerContext }) => {
-	if (typeof document === 'undefined' && context) {
-		const router = createStaticRouter(routes(), context);
-		return <StaticRouterProvider context={context} router={router} />;
-	} else {
-		const router = createBrowserRouter(routes());
-		return <RouterProvider router={router} fallbackElement={null} />;
-	}
+let App = () => {
+	const router = createBrowserRouter(routes());
+	return <RouterProvider router={router} fallbackElement={null} />;
 };
+
+if (import.meta.env.SSR) {
+	App = () => {
+		const ctx = getContext();
+		const router = createStaticRouter(routes(), ctx);
+		return <StaticRouterProvider context={ctx} router={router} />;
+	};
+}
+
+export default App;

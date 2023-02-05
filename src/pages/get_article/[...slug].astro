@@ -1,0 +1,24 @@
+---
+import { getCollection, getEntryBySlug } from 'astro:content';
+
+export async function getStaticPaths() {
+	const docs = await getCollection('docs');
+	return docs.map((doc, i) => ({
+		params: { slug: doc.slug },
+		props: { slug: doc.slug },
+	}));
+}
+
+const { slug } = Astro.props as { slug: string };
+const doc = await getEntryBySlug('docs', slug);
+
+if (!doc) {
+	throw new Error(`No doc found for slug: ${slug}`);
+}
+
+const { Content } = await doc.render();
+// await new Promise((resolve) => setTimeout(resolve, 3000));
+---
+
+MARKER
+<Content />

@@ -1,28 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
-import style from './SPA.module.css';
-import '../styles/global.css';
+import { Link, Outlet, useLoaderData, useNavigate, useParams } from 'react-router-dom';
+import { setSetPath } from './IslandLink';
 
 export const Layout = () => {
-	return (
-		<div className={style.spa}>
-			<header>
-				<h2>QGP — Astro superpowered by Vite HMR</h2>
-				<nav>
-					<a href="/">Home</a>
-					<a href="/astro">Astro</a>
-					<a href="/blog">Blog</a>
-					<a href="/about">About</a>
-					<Link className={style.active} to="/SPA">
-						SPA
-					</Link>
-					<a href="https://twitter.com/JLarky">Twitter</a>
-					<a href="https://github.com/JLarky/qgp.app">GitHub</a>
-				</nav>
-			</header>
-			<Outlet />
-		</div>
-	);
+	const navigate = useNavigate();
+	useEffect(() => {
+		setSetPath(navigate);
+	}, []);
+	return <Outlet />;
 };
 
 export const SPA = () => {
@@ -31,7 +16,7 @@ export const SPA = () => {
 			<h1>
 				QGP powered SPA <Loading>⚡️</Loading>
 			</h1>
-			<div className={style.app}>
+			<div>
 				<Sidebar />
 				<Outlet />
 			</div>
@@ -64,7 +49,7 @@ export const Loading = ({ children }: { children: string }) => {
 		<>
 			{state === 'loading' && '(spinner...)'}
 			{state === 'loaded' && (
-				<button onClick={() => setCount((i) => (i + 1) % 3)} className={style.btn}>
+				<button onClick={() => setCount((i) => (i + 1) % 3)}>
 					{Array(count + 1).fill(children)}
 				</button>
 			)}
@@ -119,6 +104,8 @@ export const NotFound = () => {
 };
 
 export const Nested = () => {
+	const x = useLoaderData() as string;
+
 	const { id = '' } = useParams<{ id?: string }>();
 	const prev = id === '1' ? '' : id ? Number(id) - 1 : '';
 	const next = id ? Number(id) + 1 : 1;
@@ -126,6 +113,7 @@ export const Nested = () => {
 	return (
 		<div>
 			<h3>Just some kind of nested page</h3>
+			<div dangerouslySetInnerHTML={{ __html: x }} />
 			<p>We are on the page /SPA/nested/{id}</p>
 			{id != '' && <Link to={'/SPA/nested/' + prev}>Previous</Link>}{' '}
 			{!!next && <Link to={'/SPA/nested/' + next}>Next</Link>}
