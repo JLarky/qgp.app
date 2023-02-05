@@ -1,19 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { SPA, Nested, Layout, Index, NotFound, SPAIndex, Counter } from './SPA';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createStaticRouter, StaticRouterProvider } from 'react-router-dom/server';
+import type { StaticHandlerContext } from '@remix-run/router';
+import { routes } from './routes';
 
-export default () => (
-	<BrowserRouter>
-		<Routes>
-			<Route index element={<Index />} />
-			<Route path="SPA" element={<SPA />}>
-				<Route index element={<SPAIndex />} />
-				<Route path="nested" element={<Nested />}>
-					<Route path=":id" element={<Nested />} />
-				</Route>
-				<Route path="counter" element={<Counter />} />
-			</Route>
-
-			<Route path="*" element={<NotFound />} />
-		</Routes>
-	</BrowserRouter>
-);
+export default ({ context }: { context?: StaticHandlerContext }) => {
+	if (typeof document === 'undefined' && context) {
+		const router = createStaticRouter(routes(), context);
+		return <StaticRouterProvider context={context} router={router} />;
+	} else {
+		const router = createBrowserRouter(routes());
+		return <RouterProvider router={router} fallbackElement={null} />;
+	}
+};

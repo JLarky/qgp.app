@@ -1,8 +1,18 @@
 ---
+import { routes } from '../components/routes';
 import Layout from '../layouts/SPA-layout.astro';
 import { App } from '../qgp/react';
+import { createStaticHandler } from '@remix-run/router';
+
+const { query } = createStaticHandler(routes());
+let context = await query(Astro.request);
+
+if (!('statusCode' in context)) {
+	// TODO: remix specific error handling
+	throw context;
+}
 ---
 
 <Layout title="">
-	<App client:only="react" />
+	<App client:load context={context} />
 </Layout>
