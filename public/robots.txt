@@ -1,0 +1,5 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow: /blog/draft
+Host: qgp.app
+Sitemap: https://qgp.app/sitemap-index.xml
