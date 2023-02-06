@@ -5,9 +5,7 @@ import checker from 'vite-plugin-checker';
 
 export const common = defineCommon({
 	vite: {
-		build: {
-			sourcemap: true,
-		},
+		build: {},
 	},
 });
 

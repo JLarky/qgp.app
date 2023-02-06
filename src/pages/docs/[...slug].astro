@@ -3,6 +3,8 @@ import { CollectionEntry, getCollection } from 'astro:content';
 import Layout from '../../layouts/Docs.astro';
 import DocLayout from '../../layouts/Doc.astro';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
 	const docs = await getCollection('docs');
 	return docs.map((doc) => ({

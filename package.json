@@ -11,7 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "fmt": "prettier --write --ignore-unknown .",
-    "deno": "(cd dist; deno run --allow-net --allow-read --watch ../.deno-deploy/static.ts)",
+    "deno": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs",
     "astro": "astro"
   },
   "dependencies": {
