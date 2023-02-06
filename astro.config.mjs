@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
+import deno from '@astrojs/deno';
 import { defineAstro } from 'qgp';
 
 import { common } from './qgp.config.mjs';
@@ -13,4 +14,6 @@ export default defineConfig({
 	integrations: [mdx(), sitemap(), react()],
 	vite: defineAstro(common, {}),
 	server: { port: 3000 },
+	output: 'server',
+	adapter: deno(),
 });
