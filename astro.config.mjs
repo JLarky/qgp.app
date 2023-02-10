@@ -11,7 +11,7 @@ import { common } from './qgp.config.mjs';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://qgp.app',
-	integrations: [mdx(), sitemap(), react(), partytown()],
+	integrations: [mdx(), sitemap(), react(), partytown({ config: { forward: ['dataLayer.push'] } })],
 	vite: defineAstro(common, {}),
 	server: { port: 3000 },
 });
