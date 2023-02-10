@@ -44,7 +44,11 @@ export const routes = (): RouteObject[] => [
 					}
 					if (!output) {
 						// await new Promise((resolve) => setTimeout(resolve, 3000));
-						const url = new URL('http://localhost:3000/get_article/' + slug);
+						const url = new URL(
+							'/get_article/' + slug,
+							// during ssr we don't have access to window.location.origin
+							import.meta.env.SSR ? 'http://localhost:3000' : window.location.origin
+						);
 						const res = await fetch(url);
 						if (res.ok) {
 							const data = await res.text();
