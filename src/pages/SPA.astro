@@ -1,8 +1,25 @@
 ---
-import Layout from '../layouts/SPA-layout.astro';
-import { App } from '../qgp/react';
+// import { createStaticHandler } from '@remix-run/router';
+
+// import { routes } from '../components/routes';
+import Layout from '../layouts/Docs.astro';
+import { App } from '../qgp/solid';
+// import { setContext } from '../ssr/context';
+
+// const { query } = createStaticHandler(routes());
+// let context = await query(Astro.request);
+
+// if (!('statusCode' in context)) {
+// 	// https://docs.astro.build/en/guides/server-side-rendering/#response
+// 	return new Response(null, {
+// 		status: context.status || 404,
+// 		statusText: context.statusText || 'Not Found',
+// 	});
+// }
+// // can't imagine this is good for SSR with multiple users
+// setContext(context);
 ---
 
-<Layout title="">
-	<App client:only="react" />
+<Layout>
+	<App client:load url={Astro.request.url} />
 </Layout>

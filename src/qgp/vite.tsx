@@ -1,12 +1,6 @@
-// please move the content of your src/index.ts here
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+/* @refresh reload */
+import { render } from 'solid-js/web';
 
-import { App } from './react';
+import { App } from './solid';
 
-const root = ReactDOM.createRoot(document.getElementById('root')!);
-root.render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>
-);
+render(() => <App />, document.getElementById('root') as HTMLElement);

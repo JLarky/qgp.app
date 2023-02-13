@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Docs.astro';
+import HMR from '../../assets/HMR.mp4';
+import Edit from '../../components/edit/Edit.astro';
+---
+
+<Layout>
+	<h1 class="text-4xl font-bold text-center mb-0">Quark Gluon Plasma</h1>
+	<p class="text-center m-0">A framework combining the best of Astro and Vite.</p>
+	<div class="p-3 m-2 rounded-2xl bg-opacity-50 bg-primary-MEDIUM">
+		<h3 class="text-2xl font-bold text-center m-0">
+			Create SPA's inside MPA's without sacrificing developer experience.
+		</h3>
+	</div>
+	<div
+		class="aspect-w-16 aspect-h-9 bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80 flex items-center justify-center flex-col"
+	>
+		<video
+			autoplay
+			loop
+			muted
+			playsinline
+			preload="auto"
+			controls
+			class="w-full h-full object-cover rounded-2xl m-0 aspect-[1.6]"
+		>
+			<source src={HMR} type="video/mp4" />
+		</video>
+		<span class="text-center text-sm"
+			>A comparison of HMR between Astro, Vite, and Create React App. Astro loses the client state
+			with every file change. Vite and Create React App both maintain the client state, but Vite is
+			noticeably faster.
+		</span>
+	</div>
+	<div class="bg-primary-NOTSODARK p-5 py-0 m-2 rounded-2xl bg-opacity-80">
+		<p class="">
+			QGP is a fun, experimental framework that combines the best of Astro and Vite. The idea is to
+			leverage the power of Astro while still enjoying the Hot Module Reloading of Vite. We view
+			this as a modern alternative to something like Create React App-- a good starting point for a
+			new project without all the tech debt and unnecessary bloat.
+		</p>
+		<p class="">
+			On the left, you will see the table of contents. If you would like to start a new project, we
+			recommend you start with the <a href="/docs/creating-a-new-site/create-qgp">Create QGP CLI</a
+			>. If you are migrating from <a href="/docs/migrating-a-website/from-astro">Astro</a>, <a
+				href="/docs/migrating-a-website/from-vite">Vite</a
+			>, or
+			<a href="/docs/migrating-a-website/from-create-react-app">Create React App</a>, we have guides
+			for those as well. (Soon...)
+		</p>
+	</div>
+	<Edit file="src/pages/docs/index.astro" />
+</Layout>
