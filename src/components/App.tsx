@@ -21,6 +21,8 @@ import { Docs } from './Docs';
 // 	};
 // }
 
+// WTH? How is it not working when fetchUser is async?
+// const fetchUsers = async () => {
 const fetchUsers = () => {
 	const x = Math.random() + '123 + ' + 'slug';
 	console.log('createResource', x);
