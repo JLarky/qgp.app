@@ -23,19 +23,19 @@ import { Docs } from './Docs';
 
 // WTH? How is it not working when fetchUser is async?
 // const fetchUsers = async () => {
-const fetchUsers = () => {
+const fetchUsers = async (a: string) => {
 	const x = Math.random() + '123 + ' + 'slug';
-	console.log('createResource', x);
-	return x;
+	console.log('createResource', x, a);
+	return x + ' + ' + a;
 };
 const docsGetter =
 	(slug: string): RouteDataFunc =>
 	({ params }) => {
 		const [user] = createResource(() => {
-			console.log('createResource', slug, params.slug);
-			return slug;
+			console.log('createResource', Object.keys(params), slug, params.slug);
+			return params.slug;
 		}, fetchUsers);
-		return user();
+		return user;
 	};
 
 const routes = [
@@ -50,16 +50,6 @@ const routes = [
 			{
 				path: '/SPA',
 				component: () => <Counter />,
-			},
-			{
-				path: '/docs/our-philosophy',
-				data: docsGetter('our-philosophy'),
-				component: () => <Docs />,
-			},
-			{
-				path: '/docs/comparisons',
-				data: docsGetter('comparisons'),
-				component: () => <Docs />,
 			},
 			{
 				path: '/docs/:slug',

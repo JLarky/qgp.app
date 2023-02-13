@@ -1,5 +1,5 @@
 import { useLocation, useParams, useRouteData } from '@solidjs/router';
-import { createEffect } from 'solid-js';
+import { createEffect, Resource } from 'solid-js';
 
 // const text =
 // 	(typeof document !== 'undefined' &&
@@ -8,14 +8,14 @@ import { createEffect } from 'solid-js';
 
 export const Docs = () => {
 	const x = useLocation();
-	const __html = useRouteData() as string;
+	const __html = useRouteData() as unknown as Resource<string>;
 	createEffect(() => {
-		console.log('useRouteData', x.pathname, __html);
+		console.log('useRouteData', x.pathname, __html());
 	});
 	return (
 		<div>
 			hello
-			<div innerText={__html} />
+			<div innerText={__html()} />
 		</div>
 	);
 };
