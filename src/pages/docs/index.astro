@@ -1,52 +1,8 @@
 ---
-import Layout from '../../layouts/Docs.astro';
-import HMR from '../../assets/HMR.mp4';
-import Edit from '../../components/edit/Edit.astro';
+import { getEntryBySlug } from 'astro:content';
+import Blog from './[...slug].astro';
+
+const doc = await getEntryBySlug('docs', 'index');
 ---
 
-<Layout>
-	<h1 class="text-4xl font-bold text-center mb-0">Quark Gluon Plasma</h1>
-	<p class="text-center m-0">A framework combining the best of Astro and Vite.</p>
-	<div class="p-3 m-2 rounded-2xl bg-opacity-50 bg-primary-MEDIUM">
-		<h3 class="text-2xl font-bold text-center m-0">
-			Create SPA's inside MPA's without sacrificing developer experience.
-		</h3>
-	</div>
-	<div
-		class="aspect-w-16 aspect-h-9 bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80 flex items-center justify-center flex-col"
-	>
-		<video
-			autoplay
-			loop
-			muted
-			playsinline
-			preload="auto"
-			controls
-			class="w-full h-full object-cover rounded-2xl m-0 aspect-[1.6]"
-		>
-			<source src={HMR} type="video/mp4" />
-		</video>
-		<span class="text-center text-sm"
-			>A comparison of HMR between Astro, Vite, and Create React App. Astro loses the client state
-			with every file change. Vite and Create React App both maintain the client state, but Vite is
-			noticeably faster.
-		</span>
-	</div>
-	<div class="bg-primary-NOTSODARK p-5 py-0 m-2 rounded-2xl bg-opacity-80">
-		<p class="">
-			QGP is a small layer of glue that combines Astro and Vite. It also adds an optional layer of
-			compatibility for your existing code. The idea is to leverage the power of Astro while still
-			enjoying the Hot Module Reloading of Vite. Starter templates designed to be extremely similar
-			to one provided by Create React App, so you can probably start with QGP instead of CRA without
-			your boss realizing it.
-		</p>
-		<p class="">
-			The best way to start is to run <code>create-qgp</code> command and to play with <a
-				href="/docs/creating-a-new-site/create-qgp">the templates</a
-			>. This documentation website is still a work in progress, it will soon have sections with
-			instructions on how to add QGP to your existing Vite, Astro or CRA projects, but for now you
-			can check out <a href="/docs/our-philosophy">Our Philosophy</a>.
-		</p>
-	</div>
-	<Edit file="src/pages/docs/index.astro" />
-</Layout>
+<Blog {...doc} />

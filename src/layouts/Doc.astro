@@ -6,7 +6,7 @@ type Props = CollectionEntry<'docs'>['data'] & {
 	id: string;
 };
 
-const { title, description, pubDate, updatedDate, image, video, id } = Astro.props as Props;
+const { title, description, block, image, video, id } = Astro.props as Props;
 
 const currentPage = Astro.url.pathname;
 
@@ -57,12 +57,17 @@ const contentPage = pageWithExtension.replace('/docs', 'src/content/docs');
 		) : null
 	}
 	<p>{description}</p>
-	<p>Published: {pubDate.toLocaleDateString()}</p>
-	<p>Last Updated: {updatedDate?.toLocaleDateString()}</p>
+	{
+		block && (
+			<div class="p-5 m-2 rounded-2xl bg-opacity-50 bg-primary-MEDIUM">
+				<h3 class="text-2xl font-bold text-center m-0">{block}</h3>
+			</div>
+		)
+	}
 	<div
-		class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80 flex flex-col items-center justify-center prose prose-qgp"
+		class="bg-primary-NOTSODARK p-5 m-2 rounded-2xl bg-opacity-80 flex flex-col items-center justify-center prose prose-qgp"
 	>
 		<slot />
 	</div>
-	<Edit file={`${contentPage}`} />
 </article>
+<Edit file={`${contentPage}`} />
