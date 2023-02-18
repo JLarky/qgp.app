@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 
 import { App } from '../../qgp/solid';
 import Layout from '../../layouts/Docs.astro';
+import GetArticle from '../get_article/[...slug].astro';
 
 export async function getStaticPaths() {
 	const docs = await getCollection('docs');
@@ -13,5 +14,7 @@ export async function getStaticPaths() {
 ---
 
 <Layout>
-	<App client:load url={Astro.request.url} />
+	<App client:load url={Astro.request.url}>
+		<GetArticle slug={Astro.params.slug || 'index'} />
+	</App>
 </Layout>

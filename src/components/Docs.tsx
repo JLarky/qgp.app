@@ -1,17 +1,16 @@
-import { useLocation, useParams, useRouteData } from '@solidjs/router';
-import { createEffect, Resource } from 'solid-js';
+import { useRouteData } from '@solidjs/router';
+import { Resource, Show, useContext } from 'solid-js';
 
-// const text =
-// 	(typeof document !== 'undefined' &&
-// 		document.querySelector('[data-hk="s00-0-0-0-0-0-1-0-0-0-6-0-0-0-0-0"]')?.textContent) ||
-// 	undefined;
+import { SSRContext } from './docs/ssr';
 
 export const Docs = () => {
-	const x = useLocation();
-	const __html = useRouteData() as unknown as Resource<string>;
-	console.log('useRouteData', x.pathname, __html());
-	createEffect(() => {
-		console.log('useRouteData', x.pathname, __html());
-	});
-	return <div innerHTML={__html()} />;
+	return (
+		<Show
+			keyed={true}
+			when={(useRouteData() as unknown as Resource<string>)()}
+			fallback={useContext(SSRContext).ssrValue}
+		>
+			{(value) => <div innerHTML={value} />}
+		</Show>
+	);
 };

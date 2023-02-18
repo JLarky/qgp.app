@@ -13,32 +13,20 @@ import { Docs } from './Docs';
 import { setSetPath } from './IslandLink';
 
 const getDoc = async (slugArg: string) => {
+	if (import.meta.env.SSR) {
+		throw new Error('getDoc should not be called on the server');
+	}
 	const slug = slugArg || 'index';
 	let output = '';
-	if (import.meta.env.SSR && import.meta.env.PROD) {
-		// if (import.meta.env.SSR) {
-		console.log('SSR prod', slug);
-		try {
-			async function readFile(path: string) {
-				try {
-					const { readFile } = await import('fs/promises');
-					output = await readFile(path, 'utf-8');
-				} catch (err) {
-					throw err;
-				}
-			}
-			console.log(await readFile('dist/get_article/' + slug + '/index.html'));
-		} catch (err) {
-			console.error(err);
-		}
-	}
 	if (!output) {
 		// await new Promise((resolve) => setTimeout(resolve, 3000));
-		const url = new URL(
-			'/get_article/' + slug,
-			// during ssr we don't have access to window.location.origin
-			import.meta.env.SSR ? 'http://localhost:3000' : window.location.origin
-		);
+		const url = new URL('/get_article/' + slug, window.location.origin);
+		if (import.meta.env.DEV) {
+			const isAstro = !!import.meta.env.SITE;
+			if (!isAstro) {
+				url.port = '3000';
+			}
+		}
 		const res = await fetch(url);
 		if (res.ok) {
 			const data = await res.text();
@@ -57,27 +45,11 @@ const getDoc = async (slugArg: string) => {
 	}
 };
 
-const ssrCache = {} as Record<string, string>;
-if (import.meta.env.SSR) {
-	ssrCache[''] = await getDoc('');
-	ssrCache['our-philosophy'] = await getDoc('our-philosophy');
-	ssrCache['comparisons'] = await getDoc('comparisons');
-}
-
 const docsGetter: RouteDataFunc = ({ params }) => {
-	const cache = ssrCache[params.slug];
-	const [doc] = createResource(
-		() => params.slug,
-		getDoc,
-		cache
-			? {
-					initialValue: cache,
-			  }
-			: {
-					initialValue: 'value in js bundle 🤷‍♀️',
-					ssrLoadFrom: 'initial',
-			  }
-	);
+	const [doc] = createResource(() => params.slug, getDoc, {
+		initialValue: '', // use astro child for initial SSR value instead (no double serialization)
+		ssrLoadFrom: 'initial',
+	});
 	return doc;
 };
 
