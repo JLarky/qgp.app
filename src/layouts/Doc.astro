@@ -33,7 +33,10 @@ const trailingSlashRemover = (currentPage: string) => {
 
 const pageWithExtension = trailingSlashRemover(currentPage) + mdOrMdx(id);
 
-const contentPage = pageWithExtension.replace('/docs', 'src/content/docs');
+console.log(pageWithExtension);
+const contentPage = pageWithExtension
+	.replace('/docs', 'src/content/docs')
+	.replace('/docs.mdx', '/docs/index.mdx');
 
 // We remove the trailing slash, add the .md or .mdx extension, and then correct the file path to the content folder
 ---
