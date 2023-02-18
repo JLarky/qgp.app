@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import react from '@astrojs/react';
+import solid from '@astrojs/solid-js';
 import partytown from '@astrojs/partytown';
 import { defineAstro } from 'qgp';
 
@@ -11,7 +11,7 @@ import { common } from './qgp.config.mjs';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://qgp.app',
-	integrations: [mdx(), sitemap(), react(), partytown({ config: { forward: ['dataLayer.push'] } })],
+	integrations: [mdx(), sitemap(), solid(), partytown({ config: { forward: ['dataLayer.push'] } })],
 	vite: defineAstro(common, {}),
 	server: { port: 3000 },
 });
