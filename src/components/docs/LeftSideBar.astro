@@ -40,9 +40,9 @@ function transformSnakeCase(str: string | undefined) {
 // Create an object with the original folder name and the transformed folder name.
 // We kept the original so we can compare it to the links in the sidebar (to determine if one of it's children is active.)
 
-const coreDocs = docs.filter(
-	(doc) => doc.id.split('/')[0].includes('.md') || doc.id.split('/')[0].includes('.mdx')
-);
+const coreDocs = docs
+	.filter((doc) => doc.id.split('/')[0].includes('.md') || doc.id.split('/')[0].includes('.mdx'))
+	.filter((doc) => doc.slug !== 'index');
 
 // Filter out the core docs from the sidebar.
 // Basically, if it's in the root folder and it's a markdown file (not a folder), it must be a core doc.
