@@ -5,12 +5,13 @@ import {
 	RouteDefinition,
 	useNavigate,
 	useRoutes,
+	useLocation,
 } from '@solidjs/router';
 import { createEffect, createResource, createSignal } from 'solid-js';
 import { transform } from 'ultrahtml';
 import sanitize from 'ultrahtml/transformers/sanitize';
 import { Docs } from './Docs';
-import { setSetPath } from './IslandLink';
+import { locationSignal, setSetPath } from './IslandLink';
 
 const getDoc = async (slugArg: string) => {
 	if (import.meta.env.SSR) {
@@ -94,6 +95,9 @@ function Layout() {
 	const navigate = useNavigate();
 	createEffect(() => {
 		setSetPath(navigate);
+	});
+	createEffect(() => {
+		locationSignal[1](useLocation());
 	});
 	return <Outlet />;
 }
