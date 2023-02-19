@@ -9,16 +9,18 @@ const { file } = Astro.props as Props;
 <details>
 	<summary>Help us improve this page</summary>
 	<a href={`https://github.com/JLarky/qgp.app/edit/main/${file}`}
-		><img width="30" alt="Open in Github" src={github} /></a
+		><img width="30" height="30" alt="Open in Github" src={github} /></a
 	>
 	{
 		file && (
 			<a href={`https://pr.new/github.com/JLarky/qgp.app/edit/main/${file}?startScript=dev1`}>
-				<img alt="Edit in Web Publisher" src={edit} />
+				<img alt="Edit in Web Publisher" src={edit} width="161" height="20" />
 			</a>
 		)
 	}
-	<a href="https://pr.new/github.com/JLarky/qgp.app/"><img alt="Open in Codeflow" src={pr} /></a>
+	<a href="https://pr.new/github.com/JLarky/qgp.app/"
+		><img alt="Open in Codeflow" src={pr} width="143" height="20" /></a
+	>
 </details>
 
 <style>
