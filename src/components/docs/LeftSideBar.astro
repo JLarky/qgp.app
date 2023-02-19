@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { IslandLink } from '../IslandLink';
 
 const docs = await getCollection('docs');
 
@@ -67,20 +68,27 @@ const isActive = (href: string) => {
 <h3 class="text-3xl font-bold">Table of Contents</h3>
 <ul>
 	<li>
-		<a
-			class={(isActive('/docs') && currentPage === '/docs') ||
+		<IslandLink
+			client:load
+			className={(isActive('/docs') && currentPage === '/docs') ||
 			(isActive('/docs') && currentPage === '/docs/')
 				? 'active'
 				: ''}
-			href="/docs">Introduction</a
+			to="/docs"
 		>
+			Introduction
+		</IslandLink>
 	</li>
 	{
 		coreDocs.map((doc) => (
 			<li>
-				<a class={isActive(`/docs/${doc.slug}`) ? 'active' : ''} href={`/docs/${doc.slug}`}>
+				<IslandLink
+					client:load
+					className={isActive(`/docs/${doc.slug}`) ? 'active' : ''}
+					to={`/docs/${doc.slug}`}
+				>
 					{doc.data.title}
-				</a>
+				</IslandLink>
 			</li>
 		))
 	}
@@ -94,9 +102,13 @@ const isActive = (href: string) => {
 					if (doc.id.split('/')[0] === original) {
 						return (
 							<li>
-								<a class={isActive(`/docs/${doc.slug}`)} href={`/docs/${doc.slug}`}>
+								<IslandLink
+									client:load
+									className={isActive(`/docs/${doc.slug}`)}
+									to={`/docs/${doc.slug}`}
+								>
 									{doc.data.title}
-								</a>
+								</IslandLink>
 							</li>
 						);
 					}

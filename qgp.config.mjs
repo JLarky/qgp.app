@@ -1,5 +1,5 @@
 // @ts-check
-import react from '@vitejs/plugin-react';
+import solid from 'vite-plugin-solid';
 import { defineCommon, defineVite } from 'qgp';
 import checker from 'vite-plugin-checker';
 
@@ -13,7 +13,7 @@ export const common = defineCommon({
 
 export default defineVite(common, {
 	plugins: [
-		react(),
+		solid(),
 		checker({
 			typescript: true,
 			overlay: { initialIsOpen: false },

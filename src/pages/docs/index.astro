@@ -1,8 +1,5 @@
 ---
-import { getEntryBySlug } from 'astro:content';
-import Blog from './[...slug].astro';
-
-const doc = await getEntryBySlug('docs', 'index');
+import Docs from './[...slug].astro';
 ---
 
-<Blog {...doc} />
+<Docs />
