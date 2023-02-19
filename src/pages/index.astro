@@ -6,6 +6,7 @@ import Infobox from '../components/Infobox.astro';
 import Edit from '../components/edit/Edit.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import logo from '../assets/1.png';
+import tanner from '../assets/tanner.webp';
 ---
 
 <!DOCTYPE html>
@@ -30,6 +31,22 @@ import logo from '../assets/1.png';
 				>.
 				<!-- See also this section in the docs for more info. -->
 			</Infobox>
+			<div class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-70">
+				<figure class="m-0">
+					<a
+						href="https://twitter.com/tannerlinsley/status/1627154643401986049"
+						target="_blank"
+						class="hover:bg-transparent text-primary-LIGHT hover:text-primary-LIGHT"
+					>
+						<img src={tanner} alt="" class="rounded-2xl m-0" width={1360} height={688} /></a
+					>
+					<figcaption class="m-0">
+						Tweet by Tanner Linsley: Yeah, Astro may be well marketed for “sites” but it’s honestly
+						a clever front for a powerhouse of core bundling, deployment and content management
+						features.
+					</figcaption>
+				</figure>
+			</div>
 			<div class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-70">
 				<p class="p-3">
 					QGP is a tool to help you build webapps with Astro using your favorite frontend framework
