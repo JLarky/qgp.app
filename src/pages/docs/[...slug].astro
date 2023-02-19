@@ -17,4 +17,7 @@ export async function getStaticPaths() {
 	<App client:load url={Astro.request.url}>
 		<GetArticle slug={Astro.params.slug || 'index'} />
 	</App>
+	<script>
+		import '../../scripts/headings.tsx';
+	</script>
 </Layout>

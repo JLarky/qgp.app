@@ -20,11 +20,12 @@ if (!doc) {
 
 const { data, id } = doc;
 const idAndData = { id, ...data };
-const { Content } = await doc.render();
+const { Content, headings } = await doc.render();
 // await new Promise((resolve) => setTimeout(resolve, 3000));
 ---
 
 <!-- MARKER -->
+<toc-data><template id="headings" set:html="JSON.stringify(headings)">[]</template></toc-data>
 <DocLayout {...idAndData}>
 	<Content />
 </DocLayout>
