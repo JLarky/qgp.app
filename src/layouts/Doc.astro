@@ -33,7 +33,6 @@ const trailingSlashRemover = (currentPage: string) => {
 
 const pageWithExtension = trailingSlashRemover(currentPage) + mdOrMdx(id);
 
-console.log(pageWithExtension);
 const contentPage = pageWithExtension
 	.replace('/docs', 'src/content/docs')
 	.replace('/docs.mdx', '/docs/index.mdx');
