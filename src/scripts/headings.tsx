@@ -14,7 +14,7 @@ customElement('toc-data', (_props, { element }) => {
 	setTimeout(() => {
 		const text = toc?.content.textContent;
 		if (text) {
-			setSignal(JSON.parse(text));
+			setSignal(JSON.parse(text) as Heading[]);
 		}
 	}, 1); // 🤷
 	return '';

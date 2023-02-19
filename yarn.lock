@@ -705,6 +705,11 @@
     lodash.merge "^4.6.2"
     postcss-selector-parser "6.0.10"
 
+"@total-typescript/ts-reset@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@total-typescript/ts-reset/-/ts-reset-0.3.2.tgz#8fadc180ec10b5f25a31ce31e3bef420fd500b64"
+  integrity sha512-MIaJ589+WSEMqqxqEZJ2HeOTKofUzuHBkwaXm9oCV9siFmm8ayZIiMwx+W7OuPrGoJIyErk1ickizE6hallzFw==
+
 "@types/acorn@^4.0.0":
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/@types/acorn/-/acorn-4.0.6.tgz#d61ca5480300ac41a7d973dd5b84d0a591154a22"
