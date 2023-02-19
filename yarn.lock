@@ -1280,6 +1280,11 @@ common-ancestor-path@^1.0.1:
   resolved "https://registry.yarnpkg.com/common-ancestor-path/-/common-ancestor-path-1.0.1.tgz#4f7d2d1394d91b7abdf51871c62f71eadb0182a7"
   integrity sha512-L3sHRo1pXXEqX8VU28kfgUY+YGsk09hPqZiZmLacNib6XNTCM8ubYeT7ryXQw8asB1sKgcU5lkB7ONug08aB8w==
 
+component-register@~0.8.2:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/component-register/-/component-register-0.8.3.tgz#d94513e72c85934f5abb22f131d6c3ca7e366085"
+  integrity sha512-/0u8ov0WPWi2FL78rgB9aFOcfY8pJT4jP/l9NTOukGNLVQ6hk35sEJE1RkEnNQU3yk48Qr7HlDQjRQKEVfgeWg==
+
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
@@ -3925,6 +3930,13 @@ slash@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
+
+solid-element@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/solid-element/-/solid-element-1.6.3.tgz#866a08dfb4ff4b2abe2c35a2f79b673d343196c2"
+  integrity sha512-yS/sePJNYsbdyZUL5LDIDVIW8VxDMbmx+qm8XRZ7WlR+cr5dHNjp1lIYqCku8DmGLzuYEoumHQAK2oPvEieqfQ==
+  dependencies:
+    component-register "~0.8.2"
 
 solid-js@^1.6.10:
   version "1.6.10"
