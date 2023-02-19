@@ -31,7 +31,7 @@ const getDoc = async (slugArg: string) => {
 		const res = await fetch(url);
 		if (res.ok) {
 			const data = await res.text();
-			output = await transform(data, [sanitize({ allowElements: ['style'] })]);
+			output = await transform(data, [sanitize({ allowElements: ['style', 'toc-data'] })]);
 		}
 	}
 	const magicString = '<!DOCTYPE html><!-- MARKER -->';

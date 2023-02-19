@@ -1,5 +1,25 @@
 ---
-import RightSideBar from './RightSideBar';
+import { getEntryBySlug } from 'astro:content';
+
+const doc = await getEntryBySlug('docs', (Astro.params.slug || 'index') as 'index');
+const { headings } = await doc.render();
 ---
 
-<RightSideBar client:only="solid" />
+<aside class="right-TOC flex flex-col items-center">
+	<right-side-bar>
+		{
+			headings.length > 0 && (
+				<>
+					<h2 class="text-2xl font-bold text-center">On This Page</h2>
+					<ul class="flex flex-col items-center">
+						{headings.map((item) => (
+							<li>
+								<a href={'#' + item.slug}>{item.text}</a>
+							</li>
+						))}
+					</ul>
+				</>
+			)
+		}
+	</right-side-bar>
+</aside>
