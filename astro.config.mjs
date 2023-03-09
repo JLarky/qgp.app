@@ -4,6 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import solid from '@astrojs/solid-js';
 import partytown from '@astrojs/partytown';
+import vercel from '@astrojs/vercel/serverless';
 import { defineAstro } from 'qgp';
 
 import { common } from './qgp.config.mjs';
@@ -15,4 +16,5 @@ export default defineConfig({
 	vite: defineAstro(common, {}),
 	output: 'server',
 	server: { port: 3000 },
+	adapter: vercel(),
 });

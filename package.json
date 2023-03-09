@@ -20,6 +20,7 @@
     "@astrojs/rss": "^2.1.0",
     "@astrojs/sitemap": "^1.0.1",
     "@astrojs/solid-js": "^2.0.2",
+    "@astrojs/vercel": "^3.2.0",
     "@qgp-js/bling": "^0.4.3",
     "@solidjs/router": "^0.7.0",
     "@tailwindcss/typography": "^0.5.9",
