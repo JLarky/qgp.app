@@ -13,5 +13,6 @@ export default defineConfig({
 	site: 'https://qgp.app',
 	integrations: [mdx(), sitemap(), solid(), partytown({ config: { forward: ['dataLayer.push'] } })],
 	vite: defineAstro(common, {}),
+	output: 'server',
 	server: { port: 3000 },
 });

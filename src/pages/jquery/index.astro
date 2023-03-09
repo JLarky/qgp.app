@@ -1,0 +1,26 @@
+---
+import { registerHandler } from '../../components/jquery/app';
+
+registerHandler(0);
+
+const initialCount = 1;
+---
+
+<body>
+	<h1>Demo jQuery</h1>
+	<div class="counter" data-count={initialCount}>
+		<button>-</button>
+		<pre>{ initialCount }</pre>
+		<button>+</button>
+	</div>
+	<script src="../../components/jquery/app.ts"></script>
+	<style>
+		.counter {
+			display: grid;
+			font-size: 2em;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			margin-top: 2em;
+			place-items: center;
+		}
+	</style>
+</body>
