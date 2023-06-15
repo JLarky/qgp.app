@@ -1,9 +1,39 @@
 ---
+import { relative } from 'path';
+
 import pr from './pr.svg';
 import edit from './edit.svg';
 import github from '../../assets/github.svg';
-export type Props = { file?: string };
-const { file } = Astro.props as Props;
+
+export type Props = {
+	file?: string;
+	fileUrl?: string;
+	requestUrl?: string;
+};
+const { file: fileOriginal, fileUrl, requestUrl } = Astro.props;
+const file = fileUrl ? fileRelative(fileUrl) : fileOriginal;
+
+function fileRelative(path: string): string {
+	const root = import.meta.url.replace('src/components/edit/Edit.astro', '');
+	// Convert the file:// URIs to a path format that the path module can understand
+	const filePath = new URL(path).pathname;
+	const rootPath = new URL(root).pathname;
+	// Calculate the relative path
+	return relative(rootPath, filePath);
+}
+
+function webPublishedUrl(file: string, pathUrl?: string) {
+	const search = new URLSearchParams({
+		startScript: 'startPublisher',
+	});
+	if (pathUrl) {
+		const path = new URL(pathUrl).pathname;
+		search.set('initialPath', path);
+	}
+	const url = new URL(`https://stackblitz.com/~/github.com/JLarky/qgp.app/edit/main/${file}`);
+	url.search = search.toString();
+	return url.toString();
+}
 ---
 
 <details>
@@ -13,7 +43,7 @@ const { file } = Astro.props as Props;
 	>
 	{
 		file && (
-			<a href={`https://pr.new/github.com/JLarky/qgp.app/edit/main/${file}?startScript=start`}>
+			<a href={webPublishedUrl(file, requestUrl)}>
 				<img alt="Edit in Web Publisher" src={edit} width="161" height="20" />
 			</a>
 		)

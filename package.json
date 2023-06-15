@@ -8,6 +8,7 @@
     "dev": "npm-run-all --parallel dev1 dev2",
     "dev1": "astro dev",
     "dev2": "vite --config qgp.config.mjs",
+    "startPublisher": "yarn astro sync && yarn dev1",
     "build": "astro build",
     "preview": "astro preview",
     "fmt": "prettier --write --ignore-unknown .",

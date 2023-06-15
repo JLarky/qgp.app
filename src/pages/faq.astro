@@ -187,7 +187,7 @@ import Edit from '../components/edit/Edit.astro';
 					links below.
 				</p>
 			</div>
-			<Edit />
+			<Edit fileUrl={import.meta.url} requestUrl={Astro.request.url} />
 			<Footer />
 		</main>
 	</body>
