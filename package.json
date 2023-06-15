@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "npm-run-all --parallel dev1 dev2",
+    "start": "astro sync && npm-run-all --parallel dev1 dev2",
     "dev": "npm-run-all --parallel dev1 dev2",
     "dev1": "astro dev",
     "dev2": "vite --config qgp.config.mjs",
@@ -13,6 +13,9 @@
     "fmt": "prettier --write --ignore-unknown .",
     "deno": "(cd dist; deno run --allow-net --allow-read --watch ../.deno-deploy/static.ts)",
     "astro": "astro"
+  },
+  "stackblitz": {
+    "startCommand": "yarn start"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.16.0",
