@@ -10,7 +10,7 @@ import { common } from './qgp.config.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://qgp.app',
+	site: 'https://qgp.deno.dev',
 	integrations: [mdx(), sitemap(), solid(), partytown({ config: { forward: ['dataLayer.push'] } })],
 	vite: defineAstro(common, {}),
 	server: { port: 3000 },

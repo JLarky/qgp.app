@@ -18,19 +18,49 @@ import tanner from '../assets/tanner.webp';
 		class="bg-primary-DARK text-primary-LIGHT flex flex-col items-center justify-center min-h-screen"
 	>
 		<Header title={SITE_TITLE} />
+		<div class="mx-8 space-y-4 mt-4">
+			<Infobox warning>
+				DEPRECATED:
+				<br />
+				This project was intended to mainly solve two issues:
+				<ul class="list-disc list-inside">
+					<li>enable HMR in Astro for React</li>
+					<li>and make migration from CRA easier</li>
+				</ul>
+				Now that both Astro and Remix have built-in HMR support and migration from CRA was made easier
+				by both
+				<a
+					href="https://remix.run/docs/en/main/guides/spa-mode"
+					class="underline hover:bg-transparent hover:underline hover:decoration-dashed">Remix</a
+				> and <a
+					href="https://github.com/TanStack/create-tsrouter-app"
+					class="underline hover:bg-transparent hover:underline hover:decoration-dashed"
+					>Tanstack Router</a
+				> this project is deprecated and the domain name <span class="underline">qgp.app</span> no longer
+				in use.
+				<!-- See also this section in the docs for more info. -->
+			</Infobox>
+			<Infobox>
+				You are still free to enjoy the old content on qgp.deno.dev domain and especially see if
+				you'll find the <a
+					class="underline hover:bg-transparent hover:underline hover:decoration-dashed"
+					href="/docs/creating-a-new-site/create-qgp">qgp-demo</a
+				> tempalte inspiring (the same app rendered with Astro, Vite and CRA).
+				<br /><code class="bg-yellow-50 px-2"
+					>npx create-qgp@latest -t astro-vite-cra-ts qgp-demo</code
+				>
+				<br /> or even try out full stack Astro template at <a
+					class="underline hover:bg-transparent hover:underline hover:decoration-dashed"
+					href="https://b2bsaaskit.com/">b2bsaaskit.com</a
+				>.
+			</Infobox>
+		</div>
 		<main class="mx-auto max-w-3xl p-4 min-h-screen flex flex-col justify-center prose prose-qgp">
 			<div class="flex justify-center">
 				<img src={logo} alt="QGP Logo" class="w-64 h-64 rounded-full shadow-lg grayscale-[0.2]" />
 			</div>
 			<h1 class="text-4xl text-center font-bold mt-4 mb-2">Build faster webapps.</h1>
-			<Infobox warning>
-				This project is in alpha state, but we use it in production at <a
-					href="https://fogbender.com">fogbender.com</a
-				>. If you find any bugs, please <a href="https://github.com/JLarky/create-qgp/issues"
-					>open an issue</a
-				>.
-				<!-- See also this section in the docs for more info. -->
-			</Infobox>
+
 			<div class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-70">
 				<figure class="m-0">
 					<a
